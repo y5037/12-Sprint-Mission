@@ -73,7 +73,7 @@ section .contentsWrap{
     align-items:end;
 }
 .type1 .contentsWrap .txtBox{
-    min-width:fit-content;
+    min-width:357px;
     margin:0 8px 100px 0;
 }
 section .title{
@@ -110,12 +110,11 @@ section .title{
 }
 .type2 .txtBox{
     flex:1;
-    padding-left:65px;
+    padding:0 40px;
 }
-.section3.type2 .txtBox{
+.section2 .txtBox.reverse{
     text-align:right;
-    padding-left:0;
-    padding-right:65px;
+    padding:0 40px;
 }
 .type2 .keyword{
     font-size:1.8em;
@@ -185,13 +184,13 @@ footer{
 @media (max-width: 1500px) {
     .type1 .title,
     .type2 .title{
-        font-size:3.7em;
+        font-size:3.5em;
     }
     .type1 .btnMain{
         min-width:300px;
     }
     .type2 .description{
-        font-size: 2.2em;
+        font-size: 2.1em;
     }
 }
 
@@ -229,8 +228,9 @@ footer{
         font-size: 1.5em;
         line-height: 24px;
     }
-    .type2 .txtBox{
-        padding:0 30px;
+    .type2 .txtBox,
+    .section2 .txtBox.reverse{
+        padding:0 50px;
     }
     .section3.type2 .txtBox{
         padding:0 30px;
