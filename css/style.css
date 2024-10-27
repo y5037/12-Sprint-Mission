@@ -125,7 +125,7 @@ section .title{
 .type2 .title{
     margin:15px 0 25px;
     font-size:4em;
-    font-weight:700
+    font-weight:700;
 }
 .type2 .description{
     font-size:2.4em;
@@ -173,6 +173,10 @@ footer{
 .footerWrap .socialBox li{
     margin-right:10px;
     cursor: pointer;
+    transition:.3s
+}
+.footerWrap .socialBox li:hover{
+    opacity:.7
 }
 .footerWrap .socialBox li:last-child{
     margin-right:0
@@ -245,5 +249,21 @@ footer{
     }
     .type2 .contentsWrap {
         margin: 100px auto;
+    }
+}
+
+@media (min-width: 1920px){
+    .headerWrap,
+    section,
+    .footerWrap{
+        padding:0
+    }
+    .headerWrap, .footerWrap{
+        max-width:1110px;
+        margin:0 auto;
+    }
+    section .contentsWrap{
+        max-width:1110px;
+        margin:0 auto;
     }
 }
