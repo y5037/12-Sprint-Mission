@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover">
+    <title>판다마켓</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/register.css">
+    <script src="js/default.js"></script>
+</head>
+<body>
+    <div class="containWrap">
+        <div class="signInLayout">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/register/login_logo.png" alt="판다마켓">
+                    <p class="companyName">판다마켓</p>
+                </a>
+            </div>
+            <div class="formWrap">
+                <form action="">
+                    <div class="inputBox">
+                        <label for="useremail">이메일</label>
+                        <div class="cover">
+                            <input id="useremail" type="email" placeholder="이메일을 입력해주세요" required>
+                        </div>
+                    </div>
+                    <div class="inputBox">
+                        <label for="username">닉네임</label>
+                        <div class="cover">
+                            <input id="username" type="text" placeholder="닉네임을 입력해주세요" required>
+                        </div>
+                    </div>
+                    <div class="inputBox pointer">
+                        <label for="userpw">비밀번호</label>
+                        <div class="cover">
+                            <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" required>
+                            <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기" class="btnVisible">
+                        </div>
+                    </div>
+                    <div class="inputBox pointer">
+                        <label for="pwcheck">비밀번호 확인</label>
+                        <div class="cover">
+                            <input id="pwcheck" type="password" placeholder="비밀번호를 입력해주세요" required>
+                            <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기" class="btnVisible">
+                        </div>
+                    </div>
+                    <div class="btnBox">
+                        <button type="submit" class="btnSubmit" disabled>회원가입</button>
+                    </div>
+                </form>
+            </div>
+            <div class="signSocial">
+                <div class="layoutBox">
+                    <p class="txt">
+                        간편 로그인하기
+                    </p>
+                    <div class="cover">
+                        <div class="btnGoogle">
+                            <a href="https://www.google.com" target="_blank" rel="noopener" noreferrer>
+                                <img src="img/register/google.svg" alt="Google">
+                            </a>
+                        </div>
+                        <div class="btnKakao">
+                            <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener" noreferrer>
+                                <img src="img/register/kakao.svg" alt="Kakao">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="returnLink">
+                이미 회원이신가요? <a href="login.html">로그인</a>
+            </div>
+        </div>
+    </div>
+    <script>
+        addEventListener('keyup', changeColor2);
+    </script>
+</body>
+</html>
