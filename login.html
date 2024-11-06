@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover">
     <title>판다마켓</title>
+    <link rel="shortcut icon" href="img/head_footer/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/register.css">
-    <script src="js/default.js"></script>
+    <script type="module" defer>
+        import {changeColor1} from './js/register.js';
+        addEventListener('keyup', changeColor1);
+    </script>
 </head>
 <body>
     <div class="containWrap">
@@ -61,8 +65,5 @@
             </div>
         </div>
     </div>
-    <script>
-        addEventListener('keyup', changeColor1);
-    </script>
 </body>
 </html>
