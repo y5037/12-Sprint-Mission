@@ -259,6 +259,7 @@ section .title{
     border-radius:12px;
     overflow:hidden;
     background:#FCFCFC;
+    max-width:1110px;
 
     /* Tablet */
     @media (min-width:768px) and (max-width: 1199px){
