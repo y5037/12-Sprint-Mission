@@ -103,7 +103,7 @@ header{
 .btnLogin:hover{
     /* PC */
     @media (min-width:1200px){
-        background:#1967D6;
+        background:var(--blueHover);
     }
 }
 .section1{
@@ -250,7 +250,7 @@ section .title{
 .type1 .btnMain:hover{
     /* PC */
     @media (min-width:1200px){
-        background:#1967D6;
+        background:var(--blueHover);
     }
 }
 .type2 .contentsWrap{
