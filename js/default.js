@@ -1,4 +1,4 @@
-import { focus } from "./register.js"; 
+import { focus, pwToggle } from "./register.js"; 
 
 useremail.addEventListener('keyup', focus);
 userpw.addEventListener('keyup', focus);

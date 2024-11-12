@@ -1,5 +1,6 @@
 // 요소 변수 저장
 const button = document.querySelector(".btnSubmit");
+const btnVisible  = document.querySelectorAll(".btnVisible");
 const input = document.querySelectorAll("input");
 const useremail = document.querySelector("#useremail");
 const username = document.querySelector("#username");
@@ -12,4 +13,4 @@ export function emailCheck(email) {
     return (email != '' && email != 'undefined' && regex.test(email)); 
 };
 
-export { button, input, useremail, username, userpw, pwcheck };
+export { button, btnVisible, input, useremail, username, userpw, pwcheck };

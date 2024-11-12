@@ -1,11 +1,11 @@
-import { emailCheck, button, input, useremail, username, userpw, pwcheck } from "./source.js";
+import { emailCheck, button, btnVisible, input, useremail, username, userpw, pwcheck } from "./source.js";
 
+// 로그인/회원가입 input
 export function focus(e){
-
     let id = e.target.id;
     let val = e.target.value;
     let warning = e.target.nextElementSibling;
-    // e.target.after(warning);
+    e.target.after(warning);
 
     // 241112 비어있는 input부터 차례대로 입력하도록 추가 구현 필요
     switch(id){
@@ -56,12 +56,11 @@ export function focus(e){
     
     // input required 여부에 따라 Button 활성화/비활성화 동작
     const listInput = []
-    
     for(let i of input){
         listInput.push(i.required);
     }
+    
     const on = listInput.filter((el) => el === false);
-
     if(on.length >= listInput.length){
         button.disabled = false;
     } else {
@@ -69,6 +68,23 @@ export function focus(e){
     }
 }
 
+// input password 활성화/비활성화
+export function pwToggle(e){
+    let targetParent = e.target.closest('div');
+    let targetInput = targetParent.firstElementChild;
+    let eyeImg = e.target;
+    if(targetInput.type !== 'text'){
+        targetInput.type = 'text';
+        eyeImg.src = '../img/register/btn_visible.svg'
+    } else {
+        targetInput.type = 'password';
+        eyeImg.src = '../img/register/btn_invisible.svg'
+    }
+}
+
+for(let btn of btnVisible){
+    btn.addEventListener('click', pwToggle);
+}
 
 
 // 초기 작업 코드 (추후 코드 비교를 위해 남겨두었습니다.)
