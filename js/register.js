@@ -5,8 +5,9 @@ export function focus(e){
     let id = e.target.id;
     let val = e.target.value;
     let warning = e.target.nextElementSibling;
-    e.target.after(warning);
+    // e.target.after(warning);
 
+    // 241112 비어있는 input부터 차례대로 입력하도록 추가 구현 필요
     switch(id){
         case "useremail":
             if(val === ''){
