@@ -1,4 +1,5 @@
 import { focus, pwToggle } from "./register.js"; 
+import { btnVisible } from "./source.js";
 
 // password 비활성화/활성화 
 for(let btn of btnVisible){
