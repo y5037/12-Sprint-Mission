@@ -82,10 +82,6 @@ export function pwToggle(e){
     }
 }
 
-for(let btn of btnVisible){
-    btn.addEventListener('click', pwToggle);
-}
-
 
 // 초기 작업 코드 (추후 코드 비교를 위해 남겨두었습니다.)
 // const createTagP = document.createElement('p');
