@@ -22,20 +22,22 @@
                     <div class="inputBox">
                         <label for="useremail">이메일</label>
                         <div class="cover">
-                            <input id="useremail" type="email" placeholder="이메일을 입력해주세요" required>
+                            <input id="useremail" type="email" placeholder="이메일을 입력해주세요" class="input" required>
+                            <p class="txtWarning"></p>
                         </div>
                     </div>
                     <div class="inputBox pointer">
                         <label for="userpw">비밀번호</label>
                         <div class="cover">
-                            <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" required>
+                            <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" class="input" required>
+                            <p class="txtWarning"></p>
                             <button type="button" class="btnVisible">
                                 <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기">
                             </button>
                         </div>
                     </div>
                     <div class="btnBox">
-                        <button type="submit" class="btnSubmit" disabled>로그인</button>
+                        <button type="button" class="btnSubmit" disabled onclick="location.href='/items'">로그인</button>
                     </div>
                 </form>
             </div>
@@ -63,9 +65,10 @@
             </div>
         </div>
     </div>
+    <script src="js/register.js"></script>
     <script type="module" defer>
-        import {color1} from './js/default.js';
-        addEventListener('keyup', color1);
+        // import {color1} from './js/default.js';
+        // addEventListener('keyup', color1);
     </script>
 </body>
 </html>

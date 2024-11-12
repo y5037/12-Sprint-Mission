@@ -23,18 +23,21 @@
                         <label for="useremail">이메일</label>
                         <div class="cover">
                             <input id="useremail" type="email" placeholder="이메일을 입력해주세요" required>
+                            <p class="txtWarning"></p>
                         </div>
                     </div>
                     <div class="inputBox">
                         <label for="username">닉네임</label>
                         <div class="cover">
                             <input id="username" type="text" placeholder="닉네임을 입력해주세요" required>
+                            <p class="txtWarning"></p>
                         </div>
                     </div>
                     <div class="inputBox pointer">
                         <label for="userpw">비밀번호</label>
                         <div class="cover">
                             <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" required>
+                            <p class="txtWarning"></p>
                             <button type="button" class="btnVisible">
                                 <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기">
                             </button>
@@ -44,13 +47,14 @@
                         <label for="pwcheck">비밀번호 확인</label>
                         <div class="cover">
                             <input id="pwcheck" type="password" placeholder="비밀번호를 입력해주세요" required>
+                            <p class="txtWarning"></p>
                             <button type="button" class="btnVisible">
                                 <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기">
                             </button>
                         </div>
                     </div>
                     <div class="btnBox">
-                        <button type="submit" class="btnSubmit" disabled>회원가입</button>
+                        <button type="button" class="btnSubmit" disabled onclick="location.href='/signin'">회원가입</button>
                     </div>
                 </form>
             </div>
@@ -78,9 +82,10 @@
             </div>
         </div>
     </div>
+    <script src="js/register.js"></script>
     <script type="module" defer>
-        import {color2} from './js/default.js';
-        addEventListener('keyup', color2);
+        // import {color2} from './js/default.js';
+        // addEventListener('keyup', color2);
     </script>
 </body>
 </html>

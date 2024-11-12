@@ -81,12 +81,22 @@
     color:var(--gray800);
     transition:.2s
 }
+.formWrap .txtWarning{
+    margin-top:10px;
+    margin-left:15px;
+    font-size:1.4em;
+    font-weight:600;
+    color:var(--red);
+}
 .formWrap input::placeholder{
     color:var(--gray400)
 }
 .formWrap input:focus{
     outline:0;
-    border:2px solid var(--blue)
+    border:2px solid var(--blue);
+}
+.formWrap input:required:focus{
+    border:2px solid var(--red);
 }
 .inputBox .cover{
     position:relative;
