@@ -1,14 +1,4 @@
-const button = document.querySelector(".btnSubmit");
-const input = document.querySelectorAll("input");
-const useremail = document.querySelector("#useremail");
-const username = document.querySelector("#username");
-const userpw = document.querySelector("#userpw");
-const pwcheck = document.querySelector("#pwcheck");
-
-function emailCheck(email) {    
-    let regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    return (email != '' && email != 'undefined' && regex.test(email)); 
-};
+import { emailCheck, button, input, useremail, username, userpw, pwcheck } from "./source.js";
 
 export function focus(e){
 
