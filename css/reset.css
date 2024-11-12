@@ -37,6 +37,7 @@
 /* palette color 변수 지정 */
 :root{
   --blue:#3692FF;
+  --blueHover:#1967D6;
   --sky:#E6F2FF;
   --gray50:#F9FAFB;
   --gray100:#F3F4F6;

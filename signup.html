@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover">
     <title>판다마켓</title>
+    <link rel="shortcut icon" href="img/head_footer/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/register.css">
-    <script src="js/default.js"></script>
 </head>
 <body>
     <div class="containWrap">
@@ -35,14 +35,18 @@
                         <label for="userpw">비밀번호</label>
                         <div class="cover">
                             <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" required>
-                            <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기" class="btnVisible">
+                            <button type="button" class="btnVisible">
+                                <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기">
+                            </button>
                         </div>
                     </div>
                     <div class="inputBox pointer">
                         <label for="pwcheck">비밀번호 확인</label>
                         <div class="cover">
                             <input id="pwcheck" type="password" placeholder="비밀번호를 입력해주세요" required>
-                            <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기" class="btnVisible">
+                            <button type="button" class="btnVisible">
+                                <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기">
+                            </button>
                         </div>
                     </div>
                     <div class="btnBox">
@@ -74,8 +78,9 @@
             </div>
         </div>
     </div>
-    <script>
-        addEventListener('keyup', changeColor2);
+    <script type="module" defer>
+        import {color2} from './js/default.js';
+        addEventListener('keyup', color2);
     </script>
 </body>
 </html>
