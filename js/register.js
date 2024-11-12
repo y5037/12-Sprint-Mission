@@ -70,7 +70,7 @@ function emailCheck(email) {
 // warning.classList.add('txtWarning');
 // const warning = document.querySelector('.txtWarning');
 
-function focus(e){
+export function focus(e){
 
     let id = e.target.id;
     let val = e.target.value;
@@ -94,7 +94,7 @@ function focus(e){
             if(val === ''){
                 warning.textContent = '닉네임을 입력해주세요';
                 e.target.required = true;
-            } else if(val.length > 3) {
+            } else if(val !== '') {
                 warning.textContent = '';
                 e.target.required = false;
             }
@@ -137,9 +137,6 @@ function focus(e){
         button.disabled = true;
     }
 }
-useremail.addEventListener('keyup', focus);
-userpw.addEventListener('keyup', focus);
-username.addEventListener('keyup', focus);
-pwcheck.addEventListener('keyup', focus);
+
 
 
