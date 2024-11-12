@@ -5,70 +5,10 @@ const username = document.querySelector("#username");
 const userpw = document.querySelector("#userpw");
 const pwcheck = document.querySelector("#pwcheck");
 
-
-// login.html
-// Submit 비활성화/활성화
-// value값이 있으면 작동하는 단순한 테스트 코드입니다.
-// function changeColor1(){
-//     if(useremail.value && userpw.value){
-//         button.disabled = false;
-//     }else{
-//         button.disabled = true;
-//     }
-// };
-
-// signup.html
-// Submit 비활성화/활성화
-// value값이 있으면 작동하는 단순한 테스트 코드입니다.
-// function changeColor2(){
-//     if(useremail.value && username.value && userpw.value && pwcheck.value){
-//         button.disabled = false;
-//     }else{
-//         button.disabled = true;
-//     }
-// };
-
-// export { changeColor1, changeColor2 }
-
-
 function emailCheck(email) {    
     let regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
     return (email != '' && email != 'undefined' && regex.test(email)); 
 };
-
-// const createTagP = document.createElement('p');
-
-// useremail.addEventListener('keydown', (e) => {
-//     let val = e.target.value;
-//     createTagP.classList.add('txtWarning');
-//     e.target.after(createTagP);
-//     if(val === ''){
-//         createTagP.textContent = '이메일을 입력해주세요';
-//     } else if(val !== '' && !emailCheck(val)){
-//         createTagP.textContent = '잘못된 이메일 형식입니다';
-//     } else {
-//         e.target.nextElementSibling.remove();
-//     }
-// });
-
-// userpw.addEventListener('keydown', (e) => {
-//     let val = e.target.value;
-//     createTagP.classList.add('txtWarning');
-//     e.target.after(createTagP);
-//     if(val === ''){
-//         createTagP.textContent = '비밀번호를 입력해주세요';
-//     } else if(val.length < 9){
-//         createTagP.textContent = '비밀번호를 8자 이상 입력해주세요.';
-//     } else {
-//         e.target.nextElementSibling.remove();
-//     }
-// });
-
-
-
-// const warning = document.createElement('p');
-// warning.classList.add('txtWarning');
-// const warning = document.querySelector('.txtWarning');
 
 export function focus(e){
 
@@ -140,3 +80,35 @@ export function focus(e){
 
 
 
+// 초기 작업 코드 (추후 코드 비교를 위해 남겨두었습니다.)
+// const createTagP = document.createElement('p');
+
+// useremail.addEventListener('keydown', (e) => {
+//     let val = e.target.value;
+//     createTagP.classList.add('txtWarning');
+//     e.target.after(createTagP);
+//     if(val === ''){
+//         createTagP.textContent = '이메일을 입력해주세요';
+//     } else if(val !== '' && !emailCheck(val)){
+//         createTagP.textContent = '잘못된 이메일 형식입니다';
+//     } else {
+//         e.target.nextElementSibling.remove();
+//     }
+// });
+
+// userpw.addEventListener('keydown', (e) => {
+//     let val = e.target.value;
+//     createTagP.classList.add('txtWarning');
+//     e.target.after(createTagP);
+//     if(val === ''){
+//         createTagP.textContent = '비밀번호를 입력해주세요';
+//     } else if(val.length < 9){
+//         createTagP.textContent = '비밀번호를 8자 이상 입력해주세요.';
+//     } else {
+//         e.target.nextElementSibling.remove();
+//     }
+// });
+
+// const warning = document.createElement('p');
+// warning.classList.add('txtWarning');
+// const warning = document.querySelector('.txtWarning');
