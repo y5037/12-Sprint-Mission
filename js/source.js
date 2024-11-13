@@ -2,8 +2,6 @@
 const button = document.querySelector(".btnSubmit");
 const btnVisible  = document.querySelectorAll(".btnVisible");
 const input = document.querySelectorAll("input");
-const useremail = document.querySelector("#useremail");
-const username = document.querySelector("#username");
 const userpw = document.querySelector("#userpw");
 const pwcheck = document.querySelector("#pwcheck");
 
@@ -13,4 +11,4 @@ export function emailCheck(email) {
     return (email != '' && email != 'undefined' && regex.test(email)); 
 };
 
-export { button, btnVisible, input, useremail, username, userpw, pwcheck };
+export { button, btnVisible, input, userpw, pwcheck };

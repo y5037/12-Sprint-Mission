@@ -1,67 +1,65 @@
-import { emailCheck, button, btnVisible, input, useremail, username, userpw, pwcheck } from "./source.js";
+import { emailCheck, button, input, userpw, pwcheck } from "./source.js";
 
 // 로그인/회원가입 input
 export function focus(e){
-    let id = e.target.id;
+    
+    let id = e.target.getAttribute('id');
     let val = e.target.value;
-    let warning = e.target.nextElementSibling;
-    e.target.after(warning);
+    let warnMsg = e.target.nextElementSibling;
+    // e.target.after(warning);
+
+    // 에러메세지 출력 /required 추가 or 삭제
+    function errContext(txt, flag){
+        warnMsg.textContent = txt;
+        e.target.required = flag
+    }
 
     // 241112 비어있는 input부터 차례대로 입력하도록 추가 구현 필요
     switch(id){
         case "useremail":
             if(val === ''){
-                warning.textContent = '이메일을 입력해주세요';
-                e.target.required = true;
+                errContext('이메일을 입력해주세요', true);
             } else if(val !== '' && !emailCheck(val)){
-                warning.textContent = '잘못된 이메일 형식입니다';
-                e.target.required = true;
+                errContext('잘못된 이메일 형식입니다', true);
             } else if(emailCheck(val)){
-                warning.textContent = '';
-                e.target.required = false;
+                errContext('', false);
             }
             break;
         case "username":
             if(val === ''){
-                warning.textContent = '닉네임을 입력해주세요';
-                e.target.required = true;
+                errContext('닉네임을 입력해주세요', true);
             } else if(val !== '') {
-                warning.textContent = '';
-                e.target.required = false;
+                errContext('', false);
             }
             break;
         case "userpw":
             if(val === ''){
-                warning.textContent = '비밀번호를 입력해주세요';
-                e.target.required = true;
+                errContext('비밀번호를 입력해주세요', true);
             } else if(val.length < 8){
-                warning.textContent = '비밀번호를 8자 이상 입력해주세요.';
-                e.target.required = true;
+                errContext('비밀번호를 8자 이상 입력해주세요', true);
             } else if(val.length > 8) {
-                warning.textContent = '';
-                e.target.required = false;
+                errContext('', false);
             }
+            // 패스워드 체크
             break;
         case "pwcheck":
             if(val === '' || val !== userpw.value || val.length < 8){
-                warning.textContent = '비밀번호가 일치하지 않습니다.';
-                e.target.required = true;
+                errContext('비밀번호가 일치하지 않습니다', true);
             } else if(val === userpw.value) {
-                warning.textContent = '';
-                e.target.required = false;
+                errContext('', false);
             }
             break;
         default: 
     }
     
     // input required 여부에 따라 Button 활성화/비활성화 동작
-    const listInput = []
+    const listRequied = []
     for(let i of input){
-        listInput.push(i.required);
+        listRequied.push(i.required);
     }
     
-    const on = listInput.filter((el) => el === false);
-    if(on.length >= listInput.length){
+    const submitFlag = listRequied.filter((el) => el === false);
+    if(submitFlag.length >= listRequied.length){
         button.disabled = false;
     } else {
         button.disabled = true;
@@ -70,15 +68,14 @@ export function focus(e){
 
 // input password 활성화/비활성화
 export function pwToggle(e){
-    let targetParent = e.target.closest('div');
-    let targetInput = targetParent.firstElementChild;
-    let eyeImg = e.target;
-    if(targetInput.type !== 'text'){
-        targetInput.type = 'text';
-        eyeImg.src = '../img/register/btn_visible.svg'
+    let prevInput = e.target.closest('div').firstElementChild;
+    let eyeIcon = e.target;
+    if(prevInput.type !== 'text'){
+        prevInput.type = 'text';
+        eyeIcon.src = '../img/register/btn_visible.svg'
     } else {
-        targetInput.type = 'password';
-        eyeImg.src = '../img/register/btn_invisible.svg'
+        prevInput.type = 'password';
+        eyeIcon.src = '../img/register/btn_invisible.svg'
     }
 }
 
