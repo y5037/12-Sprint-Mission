@@ -38,14 +38,22 @@ export function focus(e){
                 errContext('비밀번호를 8자 이상 입력해주세요', true);
             } else if(val.length > 8) {
                 errContext('', false);
+            } else {
+                pwcheck.value = '';
+                pwcheck.required = true;
             }
-            // 패스워드 체크
             break;
         case "pwcheck":
             if(val === '' || val !== userpw.value || val.length < 8){
                 errContext('비밀번호가 일치하지 않습니다', true);
             } else if(val === userpw.value) {
                 errContext('', false);
+            }
+
+            if(userpw.required === true){
+                userpw.focus();
+                errContext('비밀번호를 먼저 입력해주세요', true);
+                e.target.value = '';
             }
             break;
         default: 
