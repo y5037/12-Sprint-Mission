@@ -38,9 +38,6 @@ export function focus(e){
                 errContext('비밀번호를 8자 이상 입력해주세요', true);
             } else if(val.length > 8) {
                 errContext('', false);
-            } else {
-                pwcheck.value = '';
-                pwcheck.required = true;
             }
             break;
         case "pwcheck":
@@ -57,6 +54,13 @@ export function focus(e){
             }
             break;
         default: 
+    }
+    // 비밀번호 변경시 비밀번호 확인 input 초기화
+    if(pwcheck){
+        if(userpw === '' || e.target === userpw){
+            pwcheck.value = '';
+            pwcheck.required = true;
+        }
     }
     
     // input required 여부에 따라 Button 활성화/비활성화 동작
