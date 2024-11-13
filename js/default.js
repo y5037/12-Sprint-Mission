@@ -1,7 +1,7 @@
 import { focus, pwToggle } from "./register.js"; 
 import { btnVisible, input } from "./source.js";
 
-// input keyup event
+// input 이벤트
 for(let i of input){
     i.addEventListener('keyup', focus);
 };
