@@ -1,7 +1,7 @@
 // 요소 저장
 const button = document.querySelector(".btnSubmit");
 const btnVisible  = document.querySelectorAll(".btnVisible");
-const input = document.querySelectorAll("input");
+const inputList = document.querySelectorAll("input");
 const userpw = document.querySelector("#userpw");
 const pwcheck = document.querySelector("#pwcheck");
 
@@ -77,7 +77,7 @@ function userInform(e){
 // 241115(수정) input 입력 조건에 따라 제출 버튼 활성화/비활성화 관련 코드 분리
 function actionSubmit(){
     const listRequied = []
-    for(let i of input){
+    for(let i of inputList){
         listRequied.push(i.required);
     }
     
@@ -102,4 +102,4 @@ function pswrViewHide(e){
     }
 }
 
-export { userInform, actionSubmit, pswrViewHide, btnVisible, input } 
+export { userInform, actionSubmit, pswrViewHide, btnVisible, inputList } 
