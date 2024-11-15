@@ -12,13 +12,13 @@ function emailCheck(email) {
 };
 
 // 로그인/회원가입
-// input 입력 조건에 따라 에러메세지 출력 / required 속성의 true false 여부로 UI 변경
+// input 입력 조건에 따라 에러메세지 출력 및 required 속성의 true false 여부로 UI 변경
 function userInform(e){
     let id = e.target.getAttribute('id');
     let val = e.target.value;
     let warnMsg = e.target.nextElementSibling;
 
-    // 에러메세지 /required 추가 or 삭제
+    // 에러메세지 및 required 추가/삭제
     function errContext(txt, flag){
         warnMsg.textContent = txt;
         e.target.required = flag
@@ -89,7 +89,7 @@ function actionSubmit(){
     }
 }
 
-// password show / hide
+// Password Show/Hide
 function pswrViewHide(e){
     let prevInput = e.target.closest('div').firstElementChild;
     let eyeIcon = e.target;

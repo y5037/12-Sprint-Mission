@@ -9,7 +9,7 @@ for(let i of inputList){
     });
 };
 
-// password show / hide
+// Password Show/Hide
 for(let btn of btnVisible){
     btn.addEventListener('click', pswrViewHide);
 };
