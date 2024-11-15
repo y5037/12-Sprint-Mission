@@ -1,5 +1,4 @@
-import { userInform, pswrViewHide, actionSubmit } from "./register.js"; 
-import { btnVisible, input } from "./source.js";
+import { userInform, actionSubmit, pswrViewHide, btnVisible, input } from "./register.js"; 
 
 // 로그인/회원가입
 // input 입력 조건에 따른 UI 변경과 제출버튼 활성화/비활성화

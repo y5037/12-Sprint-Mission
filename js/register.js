@@ -1,8 +1,19 @@
-import { emailCheck, button, input, userpw, pwcheck } from "./source.js";
+// 요소 저장
+const button = document.querySelector(".btnSubmit");
+const btnVisible  = document.querySelectorAll(".btnVisible");
+const input = document.querySelectorAll("input");
+const userpw = document.querySelector("#userpw");
+const pwcheck = document.querySelector("#pwcheck");
+
+// 이메일 유효성 체크
+function emailCheck(email) {    
+    let regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+    return (email != '' && email != 'undefined' && regex.test(email)); 
+};
 
 // 로그인/회원가입
 // input 입력 조건에 따라 에러메세지 출력 / required 속성의 true false 여부로 UI 변경
-export function userInform(e){
+function userInform(e){
     let id = e.target.getAttribute('id');
     let val = e.target.value;
     let warnMsg = e.target.nextElementSibling;
@@ -64,7 +75,7 @@ export function userInform(e){
 }
 
 // 241115(수정) input 입력 조건에 따라 제출 버튼 활성화/비활성화 관련 코드 분리
-export function actionSubmit(){
+function actionSubmit(){
     const listRequied = []
     for(let i of input){
         listRequied.push(i.required);
@@ -79,7 +90,7 @@ export function actionSubmit(){
 }
 
 // password show / hide
-export function pswrViewHide(e){
+function pswrViewHide(e){
     let prevInput = e.target.closest('div').firstElementChild;
     let eyeIcon = e.target;
     if(prevInput.type !== 'text'){
@@ -90,3 +101,5 @@ export function pswrViewHide(e){
         eyeIcon.src = '../img/register/btn_invisible.svg'
     }
 }
+
+export { userInform, actionSubmit, pswrViewHide, btnVisible, input } 

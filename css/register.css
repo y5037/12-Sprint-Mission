@@ -116,7 +116,7 @@
     color:var(--gray-100);
 }
 .formWrap .btnBox .btnSubmit:disabled{
-    background:var(-);
+    background:var(--gray-400);
     cursor:auto;
 }
 .signSocial{
