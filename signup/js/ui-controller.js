@@ -63,7 +63,7 @@ function userInform(e){
             }
             break;
         case "pwcheck":
-            if(val === '' || val !== userpw.value || val.length < 8){
+            if(val === '' || val !== userpw.value){
                 errContext('비밀번호가 일치하지 않습니다', true);
                 inputError();
             } else if(val === userpw.value) {
@@ -92,13 +92,13 @@ function userInform(e){
 
 // 241115(수정) input 입력 조건에 따라 제출 버튼 활성화/비활성화 관련 코드 분리
 function actionSubmit(){
-    const listRequied = []
+    const listRequired = []
     for(let i of inputList){
-        listRequied.push(i.required);
+        listRequired.push(i.required);
     }
     
-    const submitFlag = listRequied.filter((el) => el === false);
-    if(submitFlag.length >= listRequied.length){
+    const submitFlag = listRequired.filter((el) => el === false);
+    if(submitFlag.length >= listRequired.length){
         btnSubmit.disabled = false;
     } else {
         btnSubmit.disabled = true;
