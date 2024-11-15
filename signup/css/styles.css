@@ -3,21 +3,25 @@
 
 .containWrap{
     height:100vh;
-    overflow-y:scroll;
 }
 .signInLayout{
     -webkit-display:flex;
     display:flex;
     -webkit-flex-direction:column;
     flex-direction:column;
-    justify-content: center;
     align-items: center;
     max-width:640px;
-    height:100%;
+    height:(env(safe-area-inset-bottom) +  inherit);
+    padding-top:15vh;
+    padding-bottom:15vh;
     margin:0 auto;
 
+    /* Mobile */
     @media (min-width:375px) and (max-width:767px){
-        padding:0 16px;
+        padding-left:16px;
+        padding-right:16px;
+        padding-top:10vh;
+        padding-bottom:10vh;
     }
 }
 .signInLayout .logo > a{
@@ -26,6 +30,13 @@
     -webkit-flex-direction:row;
     flex-direction:row;
     align-items: center;
+    justify-content: center;
+}
+.signInLayout .logo .logoImg{
+    /* Mobile */
+    @media (min-width:375px) and (max-width:767px){
+        width:20%;
+    }
 }
 .signInLayout .logo .companyName{
     margin-left:20px;
@@ -36,7 +47,8 @@
 
     /* Mobile */
     @media (min-width:375px) and (max-width:767px){
-        font-size:5.5em;
+        margin-left:10px;
+        font-size:3.5em;
     }
 }
 .formWrap{
@@ -155,7 +167,7 @@
     margin-top:24px;
     font-size:1.4em;
     font-weight:400;
-    color:var(--gray-800)
+    color:var(--gray-800);
 }
 .returnLink > a{
     display:inline-block;
