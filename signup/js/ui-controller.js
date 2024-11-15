@@ -1,15 +1,11 @@
+import { emailCheck } from '../../js/validation.js';
+
 // 요소 저장
 const button = document.querySelector(".btnSubmit");
 const btnVisible  = document.querySelectorAll(".btnVisible");
 const inputList = document.querySelectorAll("input");
 const userpw = document.querySelector("#userpw");
 const pwcheck = document.querySelector("#pwcheck");
-
-// 이메일 유효성 체크
-function emailCheck(email) {    
-    let regex=/([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-    return (email != '' && email != 'undefined' && regex.test(email)); 
-};
 
 // 로그인/회원가입
 // input 입력 조건에 따라 에러메세지 출력 및 required 속성의 true false 여부로 UI 변경
@@ -95,10 +91,10 @@ function pswrViewHide(e){
     let eyeIcon = e.target;
     if(prevInput.type !== 'text'){
         prevInput.type = 'text';
-        eyeIcon.src = '../img/register/btn_visible.svg'
+        eyeIcon.src = 'img/btn_visible.svg'
     } else {
         prevInput.type = 'password';
-        eyeIcon.src = '../img/register/btn_invisible.svg'
+        eyeIcon.src = 'img/btn_invisible.svg'
     }
 }
 

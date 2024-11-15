@@ -1,4 +1,4 @@
-import { userInform, actionSubmit, pswrViewHide, btnVisible, inputList } from "./register.js"; 
+import { userInform, actionSubmit, pswrViewHide, btnVisible, inputList } from "./ui-controller.js"; 
 
 // 로그인/회원가입
 // input 입력 조건에 따른 UI 변경과 제출버튼 활성화/비활성화
