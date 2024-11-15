@@ -64,18 +64,30 @@ export function focus(e){
     }
     
     // input required 여부에 따라 Button 활성화/비활성화 동작
-    const listRequied = []
-    for(let i of input){
-        listRequied.push(i.required);
-    }
+    // const listRequied = []
+    // for(let i of input){
+    //     listRequied.push(i.required);
+    // }
     
-    const submitFlag = listRequied.filter((el) => el === false);
-    if(submitFlag.length >= listRequied.length){
-        button.disabled = false;
-    } else {
-        button.disabled = true;
+    // const submitFlag = listRequied.filter((el) => el === false);
+    // if(submitFlag.length >= listRequied.length){
+    //     button.disabled = false;
+    // } else {
+    //     button.disabled = true;
+    // }
+}
+
+// 241115(수정) input 입력 조건에 따라 제출 버튼 활성화/비활성화 관련 코드 분리
+export function actionSubmit(){
+    for(let i of input){
+        if(i.required){
+            button.disabled = true;
+        } else if(!i.required) {
+            button.disabled = false;
+        }
     }
 }
+
 
 // input password 활성화/비활성화
 export function pwToggle(e){
