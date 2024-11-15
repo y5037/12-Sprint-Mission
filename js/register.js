@@ -1,19 +1,18 @@
 import { emailCheck, button, input, userpw, pwcheck } from "./source.js";
 
-// 로그인/회원가입 input
+// 로그인/회원가입
+// input 입력 조건에 따라 에러메세지 출력 / required 속성의 true false 여부로 UI 변경
 export function focus(e){
-    
     let id = e.target.getAttribute('id');
     let val = e.target.value;
     let warnMsg = e.target.nextElementSibling;
 
-    // 에러메세지 출력 /required 추가 or 삭제
+    // 에러메세지 /required 추가 or 삭제
     function errContext(txt, flag){
         warnMsg.textContent = txt;
         e.target.required = flag
     }
 
-    // 241112 비어있는 input부터 차례대로 입력하도록 추가 구현 필요
     switch(id){
         case "useremail":
             if(val === ''){
@@ -62,19 +61,6 @@ export function focus(e){
             pwcheck.required = true;
         }
     }
-    
-    // input required 여부에 따라 Button 활성화/비활성화 동작
-    // const listRequied = []
-    // for(let i of input){
-    //     listRequied.push(i.required);
-    // }
-    
-    // const submitFlag = listRequied.filter((el) => el === false);
-    // if(submitFlag.length >= listRequied.length){
-    //     button.disabled = false;
-    // } else {
-    //     button.disabled = true;
-    // }
 }
 
 // 241115(수정) input 입력 조건에 따라 제출 버튼 활성화/비활성화 관련 코드 분리
@@ -88,8 +74,7 @@ export function actionSubmit(){
     }
 }
 
-
-// input password 활성화/비활성화
+// password show / hide
 export function pwToggle(e){
     let prevInput = e.target.closest('div').firstElementChild;
     let eyeIcon = e.target;
