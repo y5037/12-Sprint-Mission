@@ -71,11 +71,11 @@ function userInform(e){
                 inputComplet();
             }
 
-            if(userpw.required === true){
-                userpw.focus();
+            if(userpw.required){
                 errContext('비밀번호를 먼저 입력해주세요', true);
                 inputError();
                 e.target.value = '';
+                userpw.focus();
             }
             break;
         default: 
