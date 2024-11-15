@@ -2,7 +2,7 @@ import { emailCheck, button, input, userpw, pwcheck } from "./source.js";
 
 // 로그인/회원가입
 // input 입력 조건에 따라 에러메세지 출력 / required 속성의 true false 여부로 UI 변경
-export function focus(e){
+export function userInform(e){
     let id = e.target.getAttribute('id');
     let val = e.target.value;
     let warnMsg = e.target.nextElementSibling;
@@ -79,7 +79,7 @@ export function actionSubmit(){
 }
 
 // password show / hide
-export function pwToggle(e){
+export function pswrViewHide(e){
     let prevInput = e.target.closest('div').firstElementChild;
     let eyeIcon = e.target;
     if(prevInput.type !== 'text'){
