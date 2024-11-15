@@ -1,7 +1,7 @@
 import { emailCheck } from '../../js/validation.js';
 
 // 요소 저장
-const button = document.querySelector(".btnSubmit");
+const btnSubmit = document.querySelector(".btnSubmit");
 const btnVisible  = document.querySelectorAll(".btnVisible");
 const inputList = document.querySelectorAll("input");
 const userpw = document.querySelector("#userpw");
@@ -99,9 +99,9 @@ function actionSubmit(){
     
     const submitFlag = listRequied.filter((el) => el === false);
     if(submitFlag.length >= listRequied.length){
-        button.disabled = false;
+        btnSubmit.disabled = false;
     } else {
-        button.disabled = true;
+        btnSubmit.disabled = true;
     }
 }
 
