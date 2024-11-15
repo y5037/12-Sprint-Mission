@@ -32,7 +32,7 @@
     font-size:6.6em;
     font-weight:700;
     font-family: 'Rokaf';
-    color:var(--blue);
+    color:var(--primary);
 
     /* Mobile */
     @media (min-width:375px) and (max-width:767px){
@@ -67,19 +67,19 @@
     margin-bottom:16px;
     font-size:1.8em;
     font-weight:700;
-    color:var(--gray800)
+    color:var(--gray-800)
 }
 .formWrap input{
     width:100%;
     height:56px;
     padding:0 24px;
     border-radius:12px;
-    border:2px solid var(--gray100);
+    border:2px solid var(--gray-100);
     font-family: 'pretendard';
     font-weight:500;
     font-size:1.6em;
-    background:var(--gray100);
-    color:var(--gray800);
+    background:var(--gray-100);
+    color:var(--gray-800);
     transition:.2s
 }
 .formWrap .txtWarning{
@@ -90,11 +90,11 @@
     color:var(--red);
 }
 .formWrap input::placeholder{
-    color:var(--gray400)
+    color:var(--gray-400)
 }
 .formWrap input:focus{
     outline:0;
-    border:2px solid var(--blue);
+    border:2px solid var(--primary);
 }
 .formWrap input:required:focus{
     border:2px solid var(--red);
@@ -111,12 +111,12 @@
     border-radius:40px;
     font-size:2em;
     font-weight:600;
-    background:var(--blue);
+    background:var(--primary);
     cursor: pointer;
-    color:var(--gray100);
+    color:var(--gray-100);
 }
 .formWrap .btnBox .btnSubmit:disabled{
-    background:var(--gray400);
+    background:var(-);
     cursor:auto;
 }
 .signSocial{
@@ -137,7 +137,7 @@
     align-items: center;
     padding:16px 23px;
     border-radius:8px;
-    border:1px solid var(--gray100);
+    border:1px solid var(--gray-100);
     background:var(--sky);
     font-size:1.6em;
     font-weight:400
@@ -155,10 +155,10 @@
     margin-top:24px;
     font-size:1.4em;
     font-weight:400;
-    color:var(--gray800)
+    color:var(--gray-800)
 }
 .returnLink > a{
     display:inline-block;
     margin-left:3px;
-    color:var(--blue);
+    color:var(--primary);
 }
