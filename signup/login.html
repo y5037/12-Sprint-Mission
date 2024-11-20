@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover">
     <title>판다마켓</title>
-    <link rel="shortcut icon" href="img/head_footer/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/register.css">
+    <link rel="shortcut icon" href="../img/head_footer/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
     <div class="containWrap">
         <div class="signInLayout">
             <div class="logo">
-                <a href="index.html">
-                    <img src="img/register/login_logo.png" alt="판다마켓">
+                <a href="/">
+                    <img src="img/login_logo.png" alt="판다마켓" class="logoImg">
                     <p class="companyName">판다마켓</p>
                 </a>
             </div>
@@ -22,20 +22,22 @@
                     <div class="inputBox">
                         <label for="useremail">이메일</label>
                         <div class="cover">
-                            <input id="useremail" type="email" placeholder="이메일을 입력해주세요" required>
+                            <input id="useremail" type="email" placeholder="이메일을 입력해주세요" class="input" required>
+                            <p class="txtWarning"></p>
                         </div>
                     </div>
                     <div class="inputBox pointer">
                         <label for="userpw">비밀번호</label>
                         <div class="cover">
-                            <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" required>
+                            <input id="userpw" type="password" placeholder="비밀번호를 입력해주세요" class="input" required>
+                            <p class="txtWarning"></p>
                             <button type="button" class="btnVisible">
-                                <img src="img/register/btn_visibility_on.svg" alt="비밀번호 보기">
+                                <img src="img/btn_invisible.svg" alt="비밀번호 보기">
                             </button>
                         </div>
                     </div>
                     <div class="btnBox">
-                        <button type="submit" class="btnSubmit" disabled>로그인</button>
+                        <button type="button" class="btnSubmit" disabled onclick="location.href='/items'">로그인</button>
                     </div>
                 </form>
             </div>
@@ -47,12 +49,12 @@
                     <div class="cover">
                         <div class="btnGoogle">
                             <a href="https://www.google.com" target="_blank" rel="noopener" noreferrer>
-                                <img src="img/register/google.svg" alt="Google">
+                                <img src="img/google.svg" alt="Google">
                             </a>
                         </div>
                         <div class="btnKakao">
                             <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener" noreferrer>
-                                <img src="img/register/kakao.svg" alt="Kakao">
+                                <img src="img/kakao.svg" alt="Kakao">
                             </a>
                         </div>
                     </div>
@@ -63,9 +65,6 @@
             </div>
         </div>
     </div>
-    <script type="module" defer>
-        import {color1} from './js/default.js';
-        addEventListener('keyup', color1);
-    </script>
+    <script type="module" src="js/index.js" defer></script>
 </body>
 </html>
