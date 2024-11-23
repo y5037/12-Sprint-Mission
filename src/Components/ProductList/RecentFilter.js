@@ -21,7 +21,6 @@ function RecentFilter({ productList, setProductList }) {
   useEffect(() => {
     handleResponsive();
   }, []);
-  console.log(isWidth);
 
   const handleLoad = async (options) => {
     try {
