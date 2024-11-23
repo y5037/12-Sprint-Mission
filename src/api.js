@@ -1,5 +1,5 @@
-async function productData({ orderBy, offset, pageSize, search, page }) {
-  const query = `page=${page}&orderBy=${orderBy}&offset=${offset}&pageSize=${pageSize}&keyword=${search}`;
+async function productData({ orderBy, pageSize, search, page }) {
+  const query = `page=${page}&orderBy=${orderBy}&pageSize=${pageSize}&keyword=${search}`;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?${query}`
   );
