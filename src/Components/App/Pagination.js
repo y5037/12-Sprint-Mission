@@ -1,6 +1,4 @@
 import styles from "../../Styles/App/Pagination.css";
-import prevButton from "../../Assets/images/pagination/arrow_left.png";
-import nextButton from "../../Assets/images/pagination/arrow_right.png";
 import Pagination from "react-js-pagination";
 
 function HandlePagiNation({ page, setPage, pageCount }) {
@@ -13,8 +11,8 @@ function HandlePagiNation({ page, setPage, pageCount }) {
       activePage={page}
       totalItemsCount={pageCount}
       pageRangeDisplayed={5}
-      prevPageText={"<"}
-      nextPageText={">"}
+      prevPageText={""}
+      nextPageText={""}
       onChange={handlePageChange}
     />
   );

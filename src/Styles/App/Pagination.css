@@ -36,6 +36,16 @@
   display: none;
 }
 
+.pagination li:nth-of-type(2) {
+  background: url("../../Assets/images/pagination/arrow_left.svg") no-repeat
+    center;
+}
+
+.pagination li:nth-last-child(2) {
+  background: url("../../Assets/images/pagination/arrow_right.svg") no-repeat
+    center;
+}
+
 .pagination li img {
   position: absolute;
   top: 50%;
