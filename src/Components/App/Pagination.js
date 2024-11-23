@@ -1,4 +1,4 @@
-import styles from "../../Styles/App/Pagenation.css";
+import styles from "../../Styles/App/Pagination.css";
 import prevButton from "../../Assets/images/pagination/arrow_left.png";
 import nextButton from "../../Assets/images/pagination/arrow_right.png";
 import Pagination from "react-js-pagination";
