@@ -8,8 +8,6 @@ async function productData({ orderBy, pageSize, search, page }) {
     throw new Error("상품을 불러오는 데 실패했습니다.");
   }
   const body = await response.json();
-
-  console.log(body);
   return body;
 }
 

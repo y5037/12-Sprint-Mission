@@ -5,8 +5,16 @@ import productData from "../../api";
 import { Link } from "react-router-dom";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
+import Pagination from "react-js-pagination";
 
-function ProductSearchForm({ productList, setProductList }) {
+function ProductSearchForm({
+  productList,
+  setProductList,
+  page,
+  setPage,
+  pageCount,
+  setPageCount,
+}) {
   const isTablet = useMediaQuery({
     query: "(max-width: 1200px)",
   });
@@ -17,7 +25,6 @@ function ProductSearchForm({ productList, setProductList }) {
   const [filter, setFilter] = useState("최신순");
   const [orderBy, setOrderBy] = useState("recent");
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
   const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
 
@@ -30,6 +37,7 @@ function ProductSearchForm({ productList, setProductList }) {
     setFilter(filterText);
     setToggle(true);
     setOrderBy("recent");
+    setPage(1);
   };
 
   const handleBestClick = (e) => {
@@ -37,12 +45,14 @@ function ProductSearchForm({ productList, setProductList }) {
     setFilter(filterText);
     setToggle(true);
     setOrderBy("favorite");
+    setPage(1);
   };
 
   const handleLoad = async (options) => {
     try {
-      const { list } = await productData(options);
+      const { list, totalCount } = await productData(options);
       setProductList(list);
+      setPageCount(totalCount);
     } catch (error) {
       console.log(error);
     }

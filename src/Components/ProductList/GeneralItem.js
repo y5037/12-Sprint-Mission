@@ -34,13 +34,17 @@ function GeneralItem({ item }) {
   );
 }
 
-function GeneralItemsList() {
+function GeneralItemsList({ page, setPage, pageCount, setPageCount }) {
   const [productList, setProductList] = useState([]);
   return (
     <div className={`${styles.productContents} ${styles.generalProduct}`}>
       <ProductSearchForm
         productList={productList}
         setProductList={setProductList}
+        page={page}
+        setPage={setPage}
+        pageCount={pageCount}
+        setPageCount={setPageCount}
       />
       <ul className={styles.productCover}>
         {productList &&

@@ -1,22 +1,23 @@
-import styles from "../../Styles/App/Pagenation.module.css";
+import styles from "../../Styles/App/Pagenation.css";
 import prevButton from "../../Assets/images/pagination/arrow_left.png";
 import nextButton from "../../Assets/images/pagination/arrow_right.png";
+import Pagination from "react-js-pagination";
 
-function PageNation() {
+function HandlePagiNation({ page, setPage, pageCount }) {
+  const handlePageChange = (page) => {
+    setPage(page);
+  };
+
   return (
-    <ul className={styles.pageNationWrap}>
-      <li>
-        <img src={prevButton} alt="맨앞으로" />
-      </li>
-
-      {/* 페이지 수에 따라 */}
-      <li className={styles.active}>1</li>
-
-      <li>
-        <img src={nextButton} alt="맨뒤로" />
-      </li>
-    </ul>
+    <Pagination
+      activePage={page}
+      totalItemsCount={pageCount}
+      pageRangeDisplayed={5}
+      prevPageText={"<"}
+      nextPageText={">"}
+      onChange={handlePageChange}
+    />
   );
 }
 
-export default PageNation;
+export default HandlePagiNation;

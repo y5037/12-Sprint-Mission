@@ -1,4 +1,4 @@
-.pageNationWrap {
+.pagination {
   -webkit-display: flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -8,12 +8,12 @@
   margin: 40px 0 50px;
 }
 
-.pageNationWrap li {
+.pagination li {
   position: relative;
   width: 40px;
   height: 40px;
   line-height: 40px;
-  margin-right: 5px;
+  margin: 0 2.5px;
   border: 1px solid var(--gray-10);
   border-radius: 50%;
   text-align: center;
@@ -22,16 +22,21 @@
   color: var(--gray-800);
 }
 
-.pageNationWrap li.active {
+.pagination li.active {
+  border: 1px solid var(--primary-active);
   background: var(--primary-active);
   color: var(--white);
 }
-
-.pageNationWrap li:last-child {
-  margin-right: 0;
+.pagination li:first-child {
+  display: none;
 }
 
-.pageNationWrap li img {
+.pagination li:last-child {
+  margin-right: 0;
+  display: none;
+}
+
+.pagination li img {
   position: absolute;
   top: 50%;
   left: 50%;
