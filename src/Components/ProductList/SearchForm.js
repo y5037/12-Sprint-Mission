@@ -4,28 +4,22 @@ import styles from "../../Styles/ProductList/common.module.css";
 import productData from "../../api";
 import { Link } from "react-router-dom";
 import { useState, useLayoutEffect, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 function ProductSearchForm({ productList, setProductList }) {
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1200px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
   const [toggle, setToggle] = useState(true);
   const [filter, setFilter] = useState("최신순");
   const [orderBy, setOrderBy] = useState("recent");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [isWidth, setIsWidth] = useState(0);
+  const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
-
-  const handleResponsive = () => {
-    if (isResponsive < 768) {
-      setIsWidth(4);
-    } else if (isResponsive < 1200) {
-      setIsWidth(6);
-    } else {
-      setIsWidth(10);
-    }
-  };
-  useEffect(() => {
-    handleResponsive();
-  }, []);
 
   const handleFilterToggle = () => {
     toggle ? setToggle(false) : setToggle(true);
@@ -57,7 +51,7 @@ function ProductSearchForm({ productList, setProductList }) {
   useLayoutEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
-      handleResponsive();
+      isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
     };
     window.addEventListener("resize", handleResize);
     return () => {

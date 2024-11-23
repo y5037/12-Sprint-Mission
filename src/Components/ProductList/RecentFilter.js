@@ -1,25 +1,19 @@
 import { useEffect, useState, useLayoutEffect } from "react";
 import productData from "../../api";
+import { useMediaQuery } from "react-responsive";
 
 function RecentFilter({ productList, setProductList }) {
+  const isTablet = useMediaQuery({
+    query: "(max-width: 1200px)",
+  });
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
   const [orderBy, setOrderby] = useState("favorite");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [isWidth, setIsWidth] = useState(0);
+  const [isWidth, setIsWidth] = useState(isMobile ? 1 : isTablet ? 2 : 4);
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
-
-  const handleResponsive = () => {
-    if (isResponsive < 768) {
-      setIsWidth(1);
-    } else if (isResponsive < 1200) {
-      setIsWidth(2);
-    } else {
-      setIsWidth(4);
-    }
-  };
-  useEffect(() => {
-    handleResponsive();
-  }, []);
 
   const handleLoad = async (options) => {
     try {
@@ -33,7 +27,7 @@ function RecentFilter({ productList, setProductList }) {
   useLayoutEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
-      handleResponsive();
+      isMobile ? setIsWidth(1) : isTablet ? setIsWidth(2) : setIsWidth(4);
     };
     window.addEventListener("resize", handleResize);
     return () => {
