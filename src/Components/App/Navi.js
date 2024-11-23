@@ -15,10 +15,11 @@ function ItemListNav() {
               <p className={styles.companyName}>판다마켓</p>
             </div>
           </Link>
-
           <div className={styles.btnWrap}>
             <button>자유게시판</button>
-            <button className={styles.active}>중고마켓</button>
+            <button className={styles.active}>
+              <Link to="/items">중고마켓</Link>
+            </button>
           </div>
         </div>
         <div className={styles.userControl}>
