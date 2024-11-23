@@ -82,6 +82,7 @@ function ProductSearchForm({
   const handleSearch = (e) => {
     e.preventDefault();
     setSearch(e.target.value);
+    setPage(1);
   };
   return (
     <>
