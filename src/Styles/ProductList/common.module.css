@@ -50,9 +50,19 @@
   @media (max-width: 1199px) {
     gap: 40px 5%;
   }
-  /* Tablet */
+  /* Mobile */
   @media (max-width: 767px) {
     gap: 40px 4%;
+  }
+}
+.generalProduct {
+  /* Tablet */
+  @media (max-width: 1199px) {
+    min-height: 600px;
+  }
+  /* Mobile */
+  @media (max-width: 767px) {
+    min-height: 400px;
   }
 }
 
