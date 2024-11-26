@@ -1,4 +1,4 @@
-import styles from "../../Styles/App/Pagination.css";
+import "../../Styles/App/Pagination.css";
 import Pagination from "react-js-pagination";
 
 function HandlePagiNation({ page, setPage, pageCount }) {

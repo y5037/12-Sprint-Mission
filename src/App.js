@@ -1,18 +1,13 @@
 import "./Styles/App/Reset.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./Components/Main/Home";
-import ItemsListPage from "./Components/ProductList/ItemsList";
+import Home from "./Pages/Home/HomePage";
+import ItemsListPage from "./Pages/ProductListPage/ItemsListPage";
 import ScrollToTop from "./Components/App/ScrollToTop";
 
 function App() {
   return (
     <>
-      <BrowserRouter
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true,
-        }}
-      >
+      <BrowserRouter>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

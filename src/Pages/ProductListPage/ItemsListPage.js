@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "../../Styles/ProductList/common.module.css";
-import ItemListNav from "../App/Navi";
-import HandlePagiNation from "../App/Pagination";
-import { BestItemsList } from "./BestItem";
-import GeneralItemsList from "./GeneralItem";
+import ItemListNav from "../../Components/App/Navi";
+import HandlePagiNation from "../../Components/App/Pagination";
+import { BestItemsList } from "../../Components/ProductList/BestItem";
+import GeneralItemsList from "../../Components/ProductList/GeneralItem";
 
 function ItemsListPage() {
   const [page, setPage] = useState(1);

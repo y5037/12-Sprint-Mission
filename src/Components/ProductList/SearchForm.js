@@ -1,11 +1,10 @@
 import arrowDown from "../../Assets/images/productList/select_down.svg";
 import productSearch from "../../Assets/images/productList/pd_search.png";
 import styles from "../../Styles/ProductList/common.module.css";
-import productData from "../../api";
+import getProductData from "../../Api/api";
 import { Link } from "react-router-dom";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import Pagination from "react-js-pagination";
 
 function ProductSearchForm({
   productList,
@@ -50,7 +49,7 @@ function ProductSearchForm({
 
   const handleLoad = async (options) => {
     try {
-      const { list, totalCount } = await productData(options);
+      const { list, totalCount } = await getProductData(options);
       setProductList(list);
       setPageCount(totalCount);
     } catch (error) {

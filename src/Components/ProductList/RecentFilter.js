@@ -1,5 +1,5 @@
-import { useEffect, useState, useLayoutEffect } from "react";
-import productData from "../../api";
+import { useState, useLayoutEffect } from "react";
+import getProductData from "../../Api/api";
 import { useMediaQuery } from "react-responsive";
 
 function RecentFilter({ productList, setProductList }) {
@@ -17,7 +17,7 @@ function RecentFilter({ productList, setProductList }) {
 
   const handleLoad = async (options) => {
     try {
-      const { list } = await productData(options);
+      const { list } = await getProductData(options);
       setProductList(list);
     } catch (error) {
       console.log(error);

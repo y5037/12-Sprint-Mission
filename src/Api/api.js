@@ -1,4 +1,4 @@
-async function productData({ orderBy, pageSize, search, page }) {
+async function getProductData({ orderBy, pageSize, search, page }) {
   const query = `page=${page}&orderBy=${orderBy}&pageSize=${pageSize}&keyword=${search}`;
   const response = await fetch(
     `https://panda-market-api.vercel.app/products?${query}`
@@ -11,4 +11,4 @@ async function productData({ orderBy, pageSize, search, page }) {
   return body;
 }
 
-export default productData;
+export default getProductData;
