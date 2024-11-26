@@ -62,10 +62,6 @@
   }
 }
 
-.navCover button.active {
-  color: var(--primary);
-}
-
 .navCover .pageControl,
 .navCover .btnLogo {
   -webkit-display: flex;

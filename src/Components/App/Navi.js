@@ -1,7 +1,13 @@
 import styles from "../../Styles/App/Navi.module.css";
 import navLogo from "../../Assets/images/navi/logo.svg";
 import profileDefaultImg from "../../Assets/images/navi/profile_default.png";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+
+function getLinkStyle({ isActive }) {
+  return {
+    color: isActive ? "#3692ff" : undefined,
+  };
+}
 
 // 중고마켓 페이지 네비게이션 - /items
 function ItemListNav() {
@@ -16,9 +22,15 @@ function ItemListNav() {
             </div>
           </Link>
           <div className={styles.btnWrap}>
-            <button>자유게시판</button>
-            <button className={styles.active}>
-              <Link to="/items">중고마켓</Link>
+            <button>
+              <NavLink to="/board" style={getLinkStyle}>
+                자유게시판
+              </NavLink>
+            </button>
+            <button>
+              <NavLink to="/items" style={getLinkStyle}>
+                중고마켓
+              </NavLink>
             </button>
           </div>
         </div>
