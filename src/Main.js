@@ -2,7 +2,7 @@ import "./Styles/App/Reset.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./Components/App/ScrollToTop";
 import App from "./Components/App/App";
-import HomePage from "./Pages/Home/HomePage";
+import HomePage from "./Pages/HomePage/HomePage";
 import ItemsListPage from "./Pages/ProductListPage/ItemsListPage";
 
 function Main() {
