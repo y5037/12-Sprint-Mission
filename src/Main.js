@@ -7,7 +7,13 @@ import ItemsListPage from "./Pages/ProductListPage/ItemsListPage";
 
 function Main() {
   return (
-    <BrowserRouter>
+    <BrowserRouter
+      // Router Future Flag Warning 메세지가 콘솔에 출력되어 추가
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<App />}>

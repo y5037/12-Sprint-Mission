@@ -6,14 +6,7 @@ import { Link } from "react-router-dom";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
-function ProductSearchForm({
-  productList,
-  setProductList,
-  page,
-  setPage,
-  pageCount,
-  setPageCount,
-}) {
+function ProductSearchForm({ setProductList, page, setPage, setPageCount }) {
   const isTablet = useMediaQuery({
     query: "(max-width: 1200px)",
   });
