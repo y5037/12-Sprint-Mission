@@ -4,7 +4,7 @@ import homeContent2 from "../../Assets/images/app/home/Img_home_02.png";
 import homeContent3 from "../../Assets/images/app/home/Img_home_03.png";
 import bannerImg1 from "../../Assets/images/app/home/Img_home_top.png";
 import bannerImg2 from "../../Assets/images/app/home/Img_home_bottom.png";
-import styles from "../../Styles/Main/common.module.css";
+import styles from "../../Styles/Main/Main.module.css";
 import { Link } from "react-router-dom";
 import Footer from "../../Components/App/Footer";
 

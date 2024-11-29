@@ -1,4 +1,4 @@
-import styles from "../../Styles/ProductRgs/common.module.css";
+import styles from "../../Styles/ProductRgs/ProductRgs.module.css";
 import deleteBtnImg from "../../Assets/images/productRgs/cancel.svg";
 
 function ImgPreview({ preview, handleDeleteClick }) {

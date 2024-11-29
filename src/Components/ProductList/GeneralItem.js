@@ -1,6 +1,6 @@
 import defaultImg from "../../Assets/images/app/common/no_img.jpg";
 import btnWish from "../../Assets/images/productList/btn_wish.png";
-import styles from "../../Styles/ProductList/common.module.css";
+import styles from "../../Styles/ProductList/ProductList.module.css";
 import ProductSearchForm from "./SearchForm";
 import { useState } from "react";
 
