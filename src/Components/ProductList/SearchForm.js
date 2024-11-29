@@ -6,7 +6,12 @@ import { Link } from "react-router-dom";
 import { useState, useLayoutEffect, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
-function ProductSearchForm({ setProductList, page, setPage, setPageCount }) {
+function ProductSearchForm({
+  setProductContainer,
+  page,
+  setPage,
+  setPageCount,
+}) {
   const isTablet = useMediaQuery({
     query: "(max-width: 1200px)",
   });
@@ -43,7 +48,7 @@ function ProductSearchForm({ setProductList, page, setPage, setPageCount }) {
   const handleLoad = async (options) => {
     try {
       const { list, totalCount } = await getProductData(options);
-      setProductList(list);
+      setProductContainer(list);
       setPageCount(totalCount);
     } catch (error) {
       console.log(error);

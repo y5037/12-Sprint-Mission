@@ -35,20 +35,20 @@ function GeneralItem({ item }) {
 }
 
 function GeneralItemsList({ page, setPage, pageCount, setPageCount }) {
-  const [productList, setProductList] = useState([]);
+  const [productContainer, setProductContainer] = useState([]);
   return (
     <div className={`${styles.productContents} ${styles.generalProduct}`}>
       <ProductSearchForm
-        productList={productList}
-        setProductList={setProductList}
+        productContainer={productContainer}
+        setProductContainer={setProductContainer}
         page={page}
         setPage={setPage}
         pageCount={pageCount}
         setPageCount={setPageCount}
       />
       <ul className={styles.productCover}>
-        {productList &&
-          productList.map((item) => {
+        {productContainer &&
+          productContainer.map((item) => {
             return (
               <li key={item.id} className={styles.item}>
                 <GeneralItem item={item} />
