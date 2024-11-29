@@ -43,14 +43,13 @@ function BestItemsList() {
       <div className={`${styles.productContents} ${styles.bestProduct}`}>
         <p className={styles.listTitle}>베스트 상품</p>
         <ul className={styles.productCover}>
-          {productList &&
-            productList.map((item) => {
-              return (
-                <li key={item.id} className={styles.item}>
-                  <BestItem item={item} />
-                </li>
-              );
-            })}
+          {productList.map((item) => {
+            return (
+              <li key={item.id} className={styles.item}>
+                <BestItem item={item} />
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>
