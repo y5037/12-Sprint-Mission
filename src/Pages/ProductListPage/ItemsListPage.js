@@ -11,7 +11,7 @@ function ItemsListPage() {
   return (
     <>
       <ItemListNav />
-      <div className={styles.pageContainer}>
+      <div className={styles.pagiContainer}>
         <BestItemsList />
         <GeneralItemsList
           page={page}

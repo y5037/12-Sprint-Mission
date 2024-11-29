@@ -1,4 +1,4 @@
-.pageContainer {
+.pagiContainer {
   margin-top: 69px;
   /* Default */
   padding: 0 200px;
@@ -246,13 +246,17 @@
   }
 }
 
+.generalProduct input::placeholder {
+  color: var(--gray-400);
+}
+
 .generalProduct input[name="search"] {
   min-width: inherit;
   width: 100%;
   border: none;
   font-size: 1.6em;
   font-weight: 400;
-  color: var(--gray-400);
+  color: var(--gray-800);
   background: var(--gray-100);
 }
 
