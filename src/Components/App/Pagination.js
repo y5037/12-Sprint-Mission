@@ -1,7 +1,7 @@
 import "../../Styles/App/Pagination.css";
 import Pagination from "react-js-pagination";
 
-function HandlePagiNation({ page, setPage, pageCount }) {
+function PaginationContainer({ page, setPage, pageCount }) {
   const handlePageChange = (page) => {
     setPage(page);
   };
@@ -18,4 +18,4 @@ function HandlePagiNation({ page, setPage, pageCount }) {
   );
 }
 
-export default HandlePagiNation;
+export default PaginationContainer;
