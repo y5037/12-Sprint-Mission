@@ -9,7 +9,9 @@ function BestItem({ item }) {
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
-  const priceNum = item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const formattedPrice = item.price
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
     <>
       <div className={`${styles.thumbnail} ${styles.skeleton}`}>
@@ -23,7 +25,7 @@ function BestItem({ item }) {
       </div>
       <div className={styles.textCover}>
         <p className={styles.itemName}>{item.name}</p>
-        <p className={styles.itemPrice}>{priceNum}</p>
+        <p className={styles.itemPrice}>{formattedPrice}</p>
         <div className={styles.viewWish}>
           <img src={btnWish} alt="찜하기" />
           <p className={styles.numWish}>{item.favoriteCount}</p>
