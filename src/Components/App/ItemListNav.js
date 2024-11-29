@@ -38,6 +38,7 @@ function ItemListNav() {
             </NavLink>
           </div>
         </div>
+        {/* 사용자 정보를 담은 프로필 또는 아바타이므로 이 기능만 제공해주는 콤포넌트를 분리하는 것도 추후 고려 */}
         <div className={styles.userControl}>
           <div className={styles.circle}>
             <img src={profileDefaultImg} alt="기본프로필이미지" />
