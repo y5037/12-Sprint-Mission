@@ -22,16 +22,20 @@ function ItemListNav() {
             </div>
           </Link>
           <div className={styles.btnWrap}>
-            <button>
-              <NavLink to="/board" style={getLinkStyle}>
-                자유게시판
-              </NavLink>
-            </button>
-            <button>
-              <NavLink to="/items" style={getLinkStyle}>
-                중고마켓
-              </NavLink>
-            </button>
+            <NavLink
+              to="/board"
+              style={getLinkStyle}
+              className={styles.btnNavMenu}
+            >
+              자유게시판
+            </NavLink>
+            <NavLink
+              to="/items"
+              style={getLinkStyle}
+              className={styles.btnNavMenu}
+            >
+              중고마켓
+            </NavLink>
           </div>
         </div>
         <div className={styles.userControl}>
