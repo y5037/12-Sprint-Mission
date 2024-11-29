@@ -9,8 +9,7 @@ function BestItem({ item }) {
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
-  const price = item.price;
-  const priceNum = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const priceNum = item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
     <>
       <div className={`${styles.thumbnail} ${styles.skeleton}`}>
