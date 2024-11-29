@@ -37,13 +37,13 @@
 }
 
 .pagination li:nth-of-type(2) {
-  background: url("../../Assets/images/pagination/arrow_left.svg") no-repeat
+  background: url("../../Assets/images/app/pagination/arrow_left.svg") no-repeat
     center;
 }
 
 .pagination li:nth-last-child(2) {
-  background: url("../../Assets/images/pagination/arrow_right.svg") no-repeat
-    center;
+  background: url("../../Assets/images/app/pagination/arrow_right.svg")
+    no-repeat center;
 }
 
 .pagination li img {

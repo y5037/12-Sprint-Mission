@@ -1,6 +1,6 @@
 import styles from "../../Styles/App/Navi.module.css";
-import navLogo from "../../Assets/images/navi/logo.svg";
-import profileDefaultImg from "../../Assets/images/navi/profile_default.png";
+import navLogo from "../../Assets/images/app/navi/logo.svg";
+import profileDefaultImg from "../../Assets/images/app/navi/profile_default.png";
 import { Link, NavLink } from "react-router-dom";
 
 function getLinkStyle({ isActive }) {
