@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styles from "../../Styles/ProductList/common.module.css";
-import ItemListNav from "../../Components/App/Navi";
+import ItemListNav from "../../Components/App/ItemListNav";
 import HandlePagiNation from "../../Components/App/Pagination";
 import { BestItemsList } from "../../Components/ProductList/BestItem";
 import GeneralItemsList from "../../Components/ProductList/GeneralItem";

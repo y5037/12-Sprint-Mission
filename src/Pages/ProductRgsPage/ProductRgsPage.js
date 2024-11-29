@@ -1,4 +1,4 @@
-import ItemListNav from "../../Components/App/Navi";
+import ItemListNav from "../../Components/App/ItemListNav";
 import RegisterForm from "../../Components/ProductRgs/RegisterForm";
 
 function ProductRgsPage() {
