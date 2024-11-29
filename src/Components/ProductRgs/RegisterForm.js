@@ -13,7 +13,9 @@ function RegisterForm() {
     tag: "",
   };
 
+  // file input 제외한 모든 input
   const [values, setValues] = useState(INITIAL_VALUES);
+  // file input
   const [imgFile, setImgFile] = useState("");
   const [isDisableChk, setIsDisableChk] = useState(true);
   const trueList = [];

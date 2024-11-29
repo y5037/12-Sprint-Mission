@@ -13,7 +13,7 @@ function GeneralItem({ item }) {
   const priceNum = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
     <>
-      <div className={`${styles.thumbnail} ${styles.skeleton}`}>
+      <div className={styles.thumbnail}>
         <img
           src={item.images}
           onError={handleImgError}
