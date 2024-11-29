@@ -1,10 +1,17 @@
 import "./Styles/App/Reset.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./Components/App/ScrollToTop";
-import App from "./Components/App/App";
-import HomePage from "./Pages/HomePage/HomePage";
-import ItemsListPage from "./Pages/ProductListPage/ItemsListPage";
-import ProductRgsPage from "./Pages/ProductRgsPage/ProductRgsPage";
+import { lazy, Suspense } from "react";
+import Loading from "./Components/App/Loading";
+
+const App = lazy(() => import("./Components/App/App"));
+const HomePage = lazy(() => import("./Pages/HomePage/HomePage"));
+const ItemsListPage = lazy(() =>
+  import("./Pages/ProductListPage/ItemsListPage")
+);
+const ProductRgsPage = lazy(() =>
+  import("./Pages/ProductRgsPage/ProductRgsPage")
+);
 
 function Main() {
   return (
@@ -16,13 +23,15 @@ function Main() {
       }}
     >
       <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<HomePage />} />
-          <Route path="items" element={<ItemsListPage />} />
-          <Route path="additem" element={<ProductRgsPage />} />
-        </Route>
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<App />}>
+            <Route index element={<HomePage />} />
+            <Route path="items" element={<ItemsListPage />} />
+            <Route path="additem" element={<ProductRgsPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
