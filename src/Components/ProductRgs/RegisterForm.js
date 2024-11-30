@@ -10,7 +10,7 @@ function RegisterForm() {
     title: "",
     description: "",
     price: 0,
-    tag: "",
+    tag: [],
   };
 
   // file input 제외한 모든 input
@@ -29,20 +29,16 @@ function RegisterForm() {
   };
 
   useEffect(() => {
-    const list = Object.values(values).map((val) => {
-      // 객체의 value 값 불린형으로 전환
-      const isCheck = Boolean(val);
-      // value가 true일 때 trueList에 true를 추가하고 값이 4개 이상이 되면 등록버튼 활성화
-      if (isCheck) {
-        trueList.push(true);
-        // 이미지 필수 추가 조건이면 length를 4 이상으로 변경
-        if (trueList.length > 3) {
-          setIsDisableChk(false);
-        }
-      } else {
-        setIsDisableChk(true);
-      }
-    });
+    if (
+      values.title !== "" &&
+      values.description !== "" &&
+      values.price > 0 &&
+      values.tag.length > 0
+    ) {
+      setIsDisableChk(false);
+    } else {
+      setIsDisableChk(true);
+    }
   }, [values]);
 
   return (

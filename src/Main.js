@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./Components/App/ScrollToTop";
 import { lazy, Suspense } from "react";
 import Loading from "./Components/App/Loading";
+import LoginPage from "./Pages/LoginPage/LoginPage";
 
 const App = lazy(() => import("./Components/App/App"));
 const HomePage = lazy(() => import("./Pages/HomePage/HomePage"));
@@ -27,6 +28,7 @@ function Main() {
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<HomePage />} />
+            <Route path="login" element={<LoginPage />} />
             <Route path="items" element={<ItemsListPage />} />
             <Route path="additem" element={<ProductRgsPage />} />
           </Route>

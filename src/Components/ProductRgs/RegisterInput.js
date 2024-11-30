@@ -50,7 +50,7 @@ function RegisterInput({ setValues }) {
   // 클릭한 태그 삭제
   const handleDeleteClick = (i) => {
     tagList.splice(i, 1);
-    handleChange("tag", i);
+    handleChange("tag", tagList);
   };
 
   return (
