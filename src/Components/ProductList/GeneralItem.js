@@ -36,7 +36,6 @@ function GeneralItem({ item }) {
 
 function GeneralItemsList({ page, setPage, pageCount, setPageCount }) {
   const [productContainer, setProductContainer] = useState([]);
-  console.log(productContainer);
   return (
     <div className={`${styles.productContents} ${styles.generalProduct}`}>
       <ProductSearchForm
