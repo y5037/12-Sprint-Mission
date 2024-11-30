@@ -204,7 +204,6 @@
   display: inline-block;
   border-radius: 12px;
   color: #fff;
-  cursor: pointer;
   background: var(--gray-100);
   position: relative;
   width: 100%;
