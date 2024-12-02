@@ -164,7 +164,7 @@
   -webkit-flex-direction: row;
   flex-direction: row;
 }
-.signSocial .cover div:first-child {
+.signSocial .cover .btnGoogle {
   margin-right: 15px;
 }
 .returnLink {

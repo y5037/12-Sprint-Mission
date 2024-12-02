@@ -18,7 +18,6 @@ function RegisterForm() {
   // file input
   const [imgFile, setImgFile] = useState("");
   const [isDisableChk, setIsDisableChk] = useState(true);
-  const trueList = [];
 
   const handleSubmit = async (e) => {
     e.preventDefault();

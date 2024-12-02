@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NumericFormat } from "react-number-format";
 import styles from "../../Styles/ProductRgs/ProductRgs.module.css";
 import deleteBtnImg from "../../Assets/images/productRgs/cancel.svg";
@@ -7,6 +7,18 @@ import deleteBtnImg from "../../Assets/images/productRgs/cancel.svg";
 function RegisterInput({ setValues }) {
   const [tag, setTag] = useState("");
   const [tagList, setTagList] = useState([]);
+  const [price, setPrice] = useState();
+  const priceInput = useRef();
+
+  useEffect(() => {
+    if (priceInput.current.value === "") {
+      setPrice(0);
+    }
+    setValues((prevValue) => ({
+      ...prevValue,
+      ["price"]: price,
+    }));
+  }, [price]);
 
   const handleChange = (name, value) => {
     setValues((prevValue) => ({
@@ -78,9 +90,12 @@ function RegisterInput({ setValues }) {
         <NumericFormat
           name="price"
           placeholder="판매 가격을 입력해주세요"
-          onChange={handleInputChange}
+          onValueChange={(values) => {
+            setPrice(values.value);
+          }}
           thousandSeparator={true}
           prefix={""}
+          getInputRef={priceInput}
         />
       </div>
       <div className={styles.inputContainer}>
