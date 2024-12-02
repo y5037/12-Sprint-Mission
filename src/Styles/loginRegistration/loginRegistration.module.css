@@ -167,6 +167,9 @@
 .signSocial .cover .btnGoogle {
   margin-right: 15px;
 }
+.signSocial .cover div {
+  cursor: pointer;
+}
 .returnLink {
   margin-top: 24px;
   font-size: 1.4em;
