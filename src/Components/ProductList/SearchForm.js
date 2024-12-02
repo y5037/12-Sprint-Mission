@@ -3,7 +3,7 @@ import productSearch from "../../Assets/images/productList/pd_search.png";
 import styles from "../../Styles/ProductList/ProductList.module.css";
 import getProductData from "../../Api/api";
 import { Link } from "react-router-dom";
-import { useState, useLayoutEffect, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
 function ProductSearchForm({
@@ -55,7 +55,7 @@ function ProductSearchForm({
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
       isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
@@ -67,7 +67,7 @@ function ProductSearchForm({
     };
   }, [isResponsive]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     handleLoad({
       orderBy,
       pageSize: isWidth,
