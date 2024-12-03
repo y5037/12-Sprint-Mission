@@ -1,5 +1,6 @@
-import "../../Styles/App/Pagination.css";
-import Pagination from "react-js-pagination";
+import styles from "../../Styles/App/Pagination.module.css";
+import arrowPrevImg from "../../Assets/images/app/pagination/arrow_left.svg";
+import arrowNextImg from "../../Assets/images/app/pagination/arrow_right.svg";
 import { useMediaQuery } from "react-responsive";
 
 function PaginationContainer({ page, setPage, pageCount }) {
@@ -9,20 +10,47 @@ function PaginationContainer({ page, setPage, pageCount }) {
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
   });
-  const handlePageChange = (page) => {
-    setPage(page);
-  };
+  const isMediaQuery = isMobile ? 4 : isTablet ? 6 : 10;
+  const itemCountPerPage = Math.ceil(pageCount / isMediaQuery); // 페이지 당 보여줄 데이터 개수
+
+  const btnPage = 5; // 한 페이지당 pagination 5개 출력
+  const currentSet = Math.ceil(page / btnPage);
+  const totalPages = Math.ceil(pageCount / isMediaQuery);
+  const noPrev = page === 1;
+  const noNext = page + itemCountPerPage - 1 >= totalPages;
+  const startPage = (currentSet - 1) * btnPage + 1;
+  const endPage = Math.min(startPage + btnPage - 1, totalPages);
 
   return (
-    <Pagination
-      activePage={page}
-      totalItemsCount={pageCount}
-      itemsCountPerPage={isMobile ? 4 : isTablet ? 6 : 10}
-      pageRangeDisplayed={5}
-      prevPageText={""}
-      nextPageText={""}
-      onChange={handlePageChange}
-    />
+    <ul className={styles.pagination}>
+      {currentSet > 1 && (
+        <li
+          className={`${styles.move} ${noPrev && styles.invisible}`}
+          onClick={() => setPage(1)}
+        >
+          <img src={arrowPrevImg} alt="<" />
+        </li>
+      )}
+      {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+        <li
+          key={i}
+          className={`${styles.page} ${
+            page === startPage + i && styles.active
+          }`}
+          onClick={() => setPage(startPage + i)}
+        >
+          {startPage + i}
+        </li>
+      ))}
+      {currentSet < Math.ceil(totalPages / btnPage) && (
+        <li
+          className={`${styles.move} ${noNext && styles.invisible}`}
+          onClick={() => setPage(endPage + 1)}
+        >
+          <img src={arrowNextImg} alt=">" />
+        </li>
+      )}
+    </ul>
   );
 }
 

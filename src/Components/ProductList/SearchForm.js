@@ -59,6 +59,7 @@ function ProductSearchForm({
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
       isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
+      setPage(1);
     };
     window.addEventListener("resize", handleResize);
     return () => {
