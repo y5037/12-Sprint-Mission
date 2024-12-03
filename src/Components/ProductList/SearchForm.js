@@ -59,6 +59,7 @@ function ProductSearchForm({
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
       isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
+      // 페이지 창 크기 조절 시 pagination 1로 초기화(추후 불필요하단 판단 시 아래 코드만 삭제)
       setPage(1);
     };
     window.addEventListener("resize", handleResize);
