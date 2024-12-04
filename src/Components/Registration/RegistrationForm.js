@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import EmailValidation from "../App/EmailValidation";
+import EmailValidation from "../../utils/emailValidation";
 import styles from "../../styles/loginRegistration/loginRegistration.module.css";
 import LogoImg from "../../assets/images/loginRegistration/login_logo.png";
 import GoogleImg from "../../assets/images/loginRegistration/google.svg";
