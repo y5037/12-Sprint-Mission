@@ -2,7 +2,6 @@ import { useState } from "react";
 import styles from "../../styles/ProductList/ProductList.module.css";
 import defaultImg from "../../assets/images/app/common/no_img.jpg";
 import btnWishImg from "../../assets/images/productList/btn_wish.png";
-import BestListFilter from "./BestListFilter";
 
 function BestItem({ item }) {
   const [loaded, setLoaded] = useState(false);
@@ -35,28 +34,4 @@ function BestItem({ item }) {
   );
 }
 
-function BestItemsList() {
-  const [productList, setProductList] = useState([]);
-  return (
-    <>
-      <BestListFilter
-        productList={productList}
-        setProductList={setProductList}
-      />
-      <div className={`${styles.productContents} ${styles.bestProduct}`}>
-        <p className={styles.listTitle}>베스트 상품</p>
-        <ul className={styles.productCover}>
-          {productList.map((item) => {
-            return (
-              <li key={item.id} className={styles.item}>
-                <BestItem item={item} />
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </>
-  );
-}
-
-export { BestItemsList };
+export default BestItem;

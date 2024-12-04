@@ -25,7 +25,11 @@ function GeneralSearchForm({
   const [search, setSearch] = useState("");
   const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
-  setIsDataCount(isWidth);
+
+  // 첫 렌더링 시 현재 유저의 디바이스 크기를 계산해 페이지네이션 출력
+  useEffect(() => {
+    setIsDataCount(isWidth);
+  }, []);
 
   const handleFilterToggle = () => {
     toggle ? setToggle(false) : setToggle(true);

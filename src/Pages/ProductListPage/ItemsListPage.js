@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styles from "../../styles/ProductList/ProductList.module.css";
-import { BestItemsList } from "../../Components/ProductList/BestItem";
-import ItemListNav from "../../Components/App/ItemListNav";
-import HandlePagiNation from "../../Components/App/Pagination";
-import GeneralItemsList from "../../Components/ProductList/GeneralItem";
+import { BestItemsList } from "../../Components/ProductList/BestItemsList";
+import ItemsListNav from "../../Components/App/ItemsListNav";
+import PaginationComponents from "../../Components/App/Pagination";
+import GeneralItemsList from "../../Components/ProductList/GeneralItemsList";
 
 function ItemsListPage() {
   const [page, setPage] = useState(1);
@@ -11,7 +11,7 @@ function ItemsListPage() {
   const [isDataCount, setIsDataCount] = useState();
   return (
     <>
-      <ItemListNav />
+      <ItemsListNav />
       <div className={styles.pagiContainer}>
         <BestItemsList />
         <GeneralItemsList
@@ -21,7 +21,7 @@ function ItemsListPage() {
           setPageCount={setPageCount}
           setIsDataCount={setIsDataCount}
         />
-        <HandlePagiNation
+        <PaginationComponents
           page={page}
           setPage={setPage}
           pageCount={pageCount}
