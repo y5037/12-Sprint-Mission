@@ -31,8 +31,10 @@ function Main() {
             <Route index element={<HomePage />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<RegistrationPage />} />
-            <Route path="items" element={<ItemsListPage />} />
-            <Route path="additem" element={<ProductRgsPage />} />
+            <Route path="items">
+              <Route index element={<ItemsListPage />} />
+              <Route path="additem" element={<ProductRgsPage />} />
+            </Route>
           </Route>
         </Routes>
       </Suspense>

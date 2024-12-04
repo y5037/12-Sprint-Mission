@@ -107,7 +107,7 @@ function GeneralSearchForm({
                   onChange={handleSearch}
                 />
               </div>
-              <Link to="/additem">
+              <Link to="/items/additem">
                 <button type="button">상품 등록하기</button>
               </Link>
             </div>
