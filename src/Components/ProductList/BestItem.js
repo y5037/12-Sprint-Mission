@@ -1,8 +1,8 @@
 import { useState } from "react";
-import defaultImg from "../../assets/images/app/common/no_img.jpg";
-import btnWish from "../../assets/images/productList/btn_wish.png";
 import styles from "../../styles/ProductList/ProductList.module.css";
-import RecentFilter from "./RecentFilter";
+import defaultImg from "../../assets/images/app/common/no_img.jpg";
+import btnWishImg from "../../assets/images/productList/btn_wish.png";
+import BestListFilter from "./BestListFilter";
 
 function BestItem({ item }) {
   const [loaded, setLoaded] = useState(false);
@@ -27,7 +27,7 @@ function BestItem({ item }) {
         <p className={styles.itemName}>{item.name}</p>
         <p className={styles.itemPrice}>{formattedPrice}</p>
         <div className={styles.viewWish}>
-          <img src={btnWish} alt="찜하기" />
+          <img src={btnWishImg} alt="찜하기" />
           <p className={styles.numWish}>{item.favoriteCount}</p>
         </div>
       </div>
@@ -39,7 +39,10 @@ function BestItemsList() {
   const [productList, setProductList] = useState([]);
   return (
     <>
-      <RecentFilter productList={productList} setProductList={setProductList} />
+      <BestListFilter
+        productList={productList}
+        setProductList={setProductList}
+      />
       <div className={`${styles.productContents} ${styles.bestProduct}`}>
         <p className={styles.listTitle}>베스트 상품</p>
         <ul className={styles.productCover}>

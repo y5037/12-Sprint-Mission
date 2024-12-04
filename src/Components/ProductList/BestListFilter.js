@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import getProductData from "../../Api/api";
 import { useMediaQuery } from "react-responsive";
+import getProductData from "../../Api/api";
 
-function RecentFilter({ setProductList }) {
+function BestListFilter({ setProductList }) {
   const isTablet = useMediaQuery({
     query: "(max-width: 1200px)",
   });
@@ -46,4 +46,4 @@ function RecentFilter({ setProductList }) {
   }, [orderBy, search, page, isWidth]);
 }
 
-export default RecentFilter;
+export default BestListFilter;

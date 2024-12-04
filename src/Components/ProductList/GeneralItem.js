@@ -1,9 +1,9 @@
 import { useState } from "react";
-import defaultImg from "../../assets/images/app/common/no_img.jpg";
-import btnWish from "../../assets/images/productList/btn_wish.png";
 import styles from "../../styles/ProductList/ProductList.module.css";
+import defaultImg from "../../assets/images/app/common/no_img.jpg";
 import notFoundImg from "../../assets/images/productList/not_found.png";
-import ProductSearchForm from "./SearchForm";
+import btnWishImg from "../../assets/images/productList/btn_wish.png";
+import GeneralSearchForm from "./GeneralSearchForm";
 
 function GeneralItem({ item }) {
   const [loaded, setLoaded] = useState(false);
@@ -26,7 +26,7 @@ function GeneralItem({ item }) {
         <p className={styles.itemName}>{item.name}</p>
         <p className={styles.itemPrice}>{priceNum}원</p>
         <div className={styles.viewWish}>
-          <img src={btnWish} alt="찜하기" />
+          <img src={btnWishImg} alt="찜하기" />
           <p className={styles.numWish}>{item.favoriteCount}</p>
         </div>
       </div>
@@ -44,7 +44,7 @@ function GeneralItemsList({
   const [productContainer, setProductContainer] = useState([]);
   return (
     <div className={`${styles.productContents} ${styles.generalProduct}`}>
-      <ProductSearchForm
+      <GeneralSearchForm
         productContainer={productContainer}
         setProductContainer={setProductContainer}
         page={page}

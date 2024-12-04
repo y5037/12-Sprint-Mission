@@ -1,5 +1,5 @@
-import styles from "../../styles/App/Footer.module.css";
 import { Link } from "react-router-dom";
+import styles from "../../styles/App/Footer.module.css";
 import iconInsta from "../../assets/images/app/home/ic_instagram.svg";
 import iconFacebook from "../../assets/images/app/home/ic_facebook.svg";
 import iconYoutube from "../../assets/images/app/home/ic_youtube.svg";

@@ -1,12 +1,12 @@
-import arrowDown from "../../assets/images/productList/select_down.svg";
-import productSearch from "../../assets/images/productList/pd_search.png";
-import styles from "../../styles/ProductList/ProductList.module.css";
-import getProductData from "../../Api/api";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
+import styles from "../../styles/ProductList/ProductList.module.css";
+import arrowDownImg from "../../assets/images/productList/select_down.svg";
+import productSearchImg from "../../assets/images/productList/pd_search.png";
+import getProductData from "../../Api/api";
 
-function ProductSearchForm({
+function GeneralSearchForm({
   setProductContainer,
   page,
   setPage,
@@ -94,7 +94,7 @@ function ProductSearchForm({
           <form>
             <div className={styles.formCover}>
               <div className={styles.inputBox}>
-                <img src={productSearch} alt="상품검색" />
+                <img src={productSearchImg} alt="상품검색" />
                 <input
                   name="search"
                   placeholder="검색할 상품을 입력해주세요"
@@ -110,7 +110,7 @@ function ProductSearchForm({
             <div className={styles.btnSelectBox} onClick={handleFilterToggle}>
               <p className={styles.text}>{filter}</p>
               <img
-                src={arrowDown}
+                src={arrowDownImg}
                 alt="옵션보기"
                 className={`${!toggle && styles.on}`}
               />
@@ -126,4 +126,4 @@ function ProductSearchForm({
   );
 }
 
-export default ProductSearchForm;
+export default GeneralSearchForm;

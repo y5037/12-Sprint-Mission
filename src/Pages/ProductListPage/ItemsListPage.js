@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styles from "../../styles/ProductList/ProductList.module.css";
+import { BestItemsList } from "../../Components/ProductList/BestItem";
 import ItemListNav from "../../Components/App/ItemListNav";
 import HandlePagiNation from "../../Components/App/Pagination";
-import { BestItemsList } from "../../Components/ProductList/BestItem";
 import GeneralItemsList from "../../Components/ProductList/GeneralItem";
 
 function ItemsListPage() {
