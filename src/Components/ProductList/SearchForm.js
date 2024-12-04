@@ -25,6 +25,7 @@ function ProductSearchForm({
   const [search, setSearch] = useState("");
   const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
+  setIsDataCount(isWidth);
 
   const handleFilterToggle = () => {
     toggle ? setToggle(false) : setToggle(true);
