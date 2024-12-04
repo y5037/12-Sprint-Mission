@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 import styles from "../../styles/ProductList/ProductList.module.css";
 import arrowDownImg from "../../assets/images/productList/select_down.svg";
 import productSearchImg from "../../assets/images/productList/pd_search.png";
 import getProductData from "../../Api/api";
+import CalculatorMediaQuery from "../../utils/calculatormediaQuery";
 
 function GeneralSearchForm({
   setProductContainer,
@@ -13,22 +13,20 @@ function GeneralSearchForm({
   setPageCount,
   setIsDataCount,
 }) {
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1200px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
-  const [toggle, setToggle] = useState(true);
-  const [filter, setFilter] = useState("최신순");
+  const { isTablet, isMobile } = CalculatorMediaQuery();
+  const [isResponsive, setIsResponsive] = useState(window.innerWidth);
+  const [isItemCount, setIsItemCount] = useState(
+    isMobile ? 4 : isTablet ? 6 : 10
+  );
+
   const [orderBy, setOrderBy] = useState("recent");
   const [search, setSearch] = useState("");
-  const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
-  const [isResponsive, setIsResponsive] = useState(window.innerWidth);
+  const [filter, setFilter] = useState("최신순");
+  const [toggle, setToggle] = useState(true);
 
   // 첫 렌더링 시 현재 유저의 디바이스 크기를 계산해 페이지네이션 출력
   useEffect(() => {
-    setIsDataCount(isWidth);
+    setIsDataCount(isItemCount);
   }, []);
 
   const handleFilterToggle = () => {
@@ -64,10 +62,14 @@ function GeneralSearchForm({
   useEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
-      isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
+      isMobile
+        ? setIsItemCount(4)
+        : isTablet
+        ? setIsItemCount(6)
+        : setIsItemCount(10);
+      setIsDataCount(isItemCount);
       // 페이지 창 크기 조절 시 pagination 1로 초기화(추후 불필요하단 판단 시 아래 코드만 삭제)
       setPage(1);
-      setIsDataCount(isWidth);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -79,11 +81,11 @@ function GeneralSearchForm({
   useEffect(() => {
     handleLoad({
       orderBy,
-      pageSize: isWidth,
+      pageSize: isItemCount,
       search,
       page,
     });
-  }, [orderBy, search, page, isWidth]);
+  }, [orderBy, search, page, isItemCount]);
 
   const handleSearch = (e) => {
     e.preventDefault();

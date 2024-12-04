@@ -1,19 +1,17 @@
 import { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
 import getProductData from "../../Api/api";
+import CalculatorMediaQuery from "../../utils/calculatormediaQuery";
 
 function BestListFilter({ setProductList }) {
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1200px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
+  const { isTablet, isMobile } = CalculatorMediaQuery();
+  const [isResponsive, setIsResponsive] = useState(window.innerWidth);
+  const [isItemCount, setIsItemCount] = useState(
+    isMobile ? 1 : isTablet ? 2 : 4
+  );
+
   const [orderBy, setOrderby] = useState("favorite");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
-  const [isWidth, setIsWidth] = useState(isMobile ? 1 : isTablet ? 2 : 4);
-  const [isResponsive, setIsResponsive] = useState(window.innerWidth);
 
   const handleLoad = async (options) => {
     try {
@@ -27,7 +25,11 @@ function BestListFilter({ setProductList }) {
   useEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
-      isMobile ? setIsWidth(1) : isTablet ? setIsWidth(2) : setIsWidth(4);
+      isMobile
+        ? setIsItemCount(1)
+        : isTablet
+        ? setIsItemCount(2)
+        : setIsItemCount(4);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -39,11 +41,11 @@ function BestListFilter({ setProductList }) {
   useEffect(() => {
     handleLoad({
       orderBy,
-      pageSize: isWidth,
+      pageSize: isItemCount,
       search,
       page,
     });
-  }, [orderBy, search, page, isWidth]);
+  }, [orderBy, search, page, isItemCount]);
 }
 
 export default BestListFilter;
