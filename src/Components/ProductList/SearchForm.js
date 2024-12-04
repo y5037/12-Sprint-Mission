@@ -1,19 +1,17 @@
 import arrowDown from "../../Assets/images/productList/select_down.svg";
 import productSearch from "../../Assets/images/productList/pd_search.png";
-import styles from "../../Styles/ProductList/common.module.css";
-import productData from "../../api";
+import styles from "../../Styles/ProductList/ProductList.module.css";
+import getProductData from "../../Api/api";
 import { Link } from "react-router-dom";
-import { useState, useLayoutEffect, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
-import Pagination from "react-js-pagination";
 
 function ProductSearchForm({
-  productList,
-  setProductList,
+  setProductContainer,
   page,
   setPage,
-  pageCount,
   setPageCount,
+  setIsDataCount,
 }) {
   const isTablet = useMediaQuery({
     query: "(max-width: 1200px)",
@@ -27,6 +25,7 @@ function ProductSearchForm({
   const [search, setSearch] = useState("");
   const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
+  setIsDataCount(isWidth);
 
   const handleFilterToggle = () => {
     toggle ? setToggle(false) : setToggle(true);
@@ -50,18 +49,21 @@ function ProductSearchForm({
 
   const handleLoad = async (options) => {
     try {
-      const { list, totalCount } = await productData(options);
-      setProductList(list);
+      const { list, totalCount } = await getProductData(options);
+      setProductContainer(list);
       setPageCount(totalCount);
     } catch (error) {
       console.log(error);
     }
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
       isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
+      // 페이지 창 크기 조절 시 pagination 1로 초기화(추후 불필요하단 판단 시 아래 코드만 삭제)
+      setPage(1);
+      setIsDataCount(isWidth);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -70,7 +72,7 @@ function ProductSearchForm({
     };
   }, [isResponsive]);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     handleLoad({
       orderBy,
       pageSize: isWidth,

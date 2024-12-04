@@ -1,17 +1,14 @@
-import logo from "../../Assets/images/navi/logo.svg";
-import homeContent1 from "../../Assets/images/home/Img_home_01.png";
-import homeContent2 from "../../Assets/images/home/Img_home_02.png";
-import homeContent3 from "../../Assets/images/home/Img_home_03.png";
-import bannerImg1 from "../../Assets/images/home/Img_home_top.png";
-import bannerImg2 from "../../Assets/images/home/Img_home_bottom.png";
-import iconInsta from "../../Assets/images/home/ic_instagram.svg";
-import iconFacebook from "../../Assets/images/home/ic_facebook.svg";
-import iconYoutube from "../../Assets/images/home/ic_youtube.svg";
-import iconTwitter from "../../Assets/images/home/ic_twitter.svg";
-import styles from "../../Styles/Main/common.module.css";
+import logo from "../../Assets/images/app/navi/logo.svg";
+import homeContent1 from "../../Assets/images/app/home/Img_home_01.png";
+import homeContent2 from "../../Assets/images/app/home/Img_home_02.png";
+import homeContent3 from "../../Assets/images/app/home/Img_home_03.png";
+import bannerImg1 from "../../Assets/images/app/home/Img_home_top.png";
+import bannerImg2 from "../../Assets/images/app/home/Img_home_bottom.png";
+import styles from "../../Styles/Main/Main.module.css";
 import { Link } from "react-router-dom";
+import Footer from "../../Components/App/Footer";
 
-function Home() {
+function HomePage() {
   return (
     <>
       <div className={styles.fixContainer}>
@@ -122,31 +119,9 @@ function Home() {
           </div>
         </section>
       </main>
-      <footer>
-        <div className={styles.footerWrap}>
-          <p className={styles.copyright}>&copy;codeit - 2024</p>
-          <div className={styles.btnLink}>
-            <Link to="/privacy">Privacy Policy</Link>
-            <Link to="/faq">FAQ</Link>
-          </div>
-          <ul className={styles.socialBox}>
-            <li onClick={() => window.open("https://www.facebook.com/")}>
-              <img src={iconFacebook} alt="Facebook" />
-            </li>
-            <li onClick={() => window.open("https://www.twitter.com/")}>
-              <img src={iconTwitter} alt="Twitter" />
-            </li>
-            <li onClick={() => window.open("https://www.youtube.com/")}>
-              <img src={iconYoutube} alt="Youtube" />
-            </li>
-            <li onClick={() => window.open("https://www.instagram.com/")}>
-              <img src={iconInsta} alt="Instagram" />
-            </li>
-          </ul>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
 
-export default Home;
+export default HomePage;

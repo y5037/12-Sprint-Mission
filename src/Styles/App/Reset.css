@@ -52,6 +52,7 @@
   --primary: #3692ff; /*브랜드 주요 색상*/
   --primary-foreground: #1967d6;
   --primary-active: #2f80ed;
+  --gray-01: #ededed;
   --gray-10: #dfdfdf;
   --gray-50: #f9fafb;
   --gray-100: #f3f4f6;
@@ -209,6 +210,22 @@ img {
   image-rendering: auto;
   image-rendering: -webkit-optimize-contrast;
   -ms-interpolation-mode: nearest-neighbor;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus,
+textarea:focus {
+  outline: none;
+}
+textarea {
+  resize: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 30px var(--gray-100) inset;

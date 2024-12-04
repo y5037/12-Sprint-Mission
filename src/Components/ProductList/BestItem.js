@@ -1,7 +1,7 @@
 import { useState } from "react";
-import defaultImg from "../../Assets/images/common/no_img.jpg";
+import defaultImg from "../../Assets/images/app/common/no_img.jpg";
 import btnWish from "../../Assets/images/productList/btn_wish.png";
-import styles from "../../Styles/ProductList/common.module.css";
+import styles from "../../Styles/ProductList/ProductList.module.css";
 import RecentFilter from "./RecentFilter";
 
 function BestItem({ item }) {
@@ -9,8 +9,9 @@ function BestItem({ item }) {
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
-  const price = item.price;
-  const priceNum = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const formattedPrice = item.price
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
     <>
       <div className={`${styles.thumbnail} ${styles.skeleton}`}>
@@ -24,7 +25,7 @@ function BestItem({ item }) {
       </div>
       <div className={styles.textCover}>
         <p className={styles.itemName}>{item.name}</p>
-        <p className={styles.itemPrice}>{priceNum}</p>
+        <p className={styles.itemPrice}>{formattedPrice}</p>
         <div className={styles.viewWish}>
           <img src={btnWish} alt="찜하기" />
           <p className={styles.numWish}>{item.favoriteCount}</p>
@@ -42,14 +43,13 @@ function BestItemsList() {
       <div className={`${styles.productContents} ${styles.bestProduct}`}>
         <p className={styles.listTitle}>베스트 상품</p>
         <ul className={styles.productCover}>
-          {productList &&
-            productList.map((item) => {
-              return (
-                <li key={item.id} className={styles.item}>
-                  <BestItem item={item} />
-                </li>
-              );
-            })}
+          {productList.map((item) => {
+            return (
+              <li key={item.id} className={styles.item}>
+                <BestItem item={item} />
+              </li>
+            );
+          })}
         </ul>
       </div>
     </>

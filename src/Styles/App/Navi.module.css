@@ -36,8 +36,15 @@
     padding: 0 16px;
   }
 }
+.pageControl .btnWrap {
+  -webkit-display: flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  align-items: center;
+}
 
-.navCover button {
+.navCover .btnNavMenu {
   color: var(--gray-600);
   cursor: pointer;
   font-size: 1.8em;
@@ -53,17 +60,13 @@
   }
 }
 
-.navCover button:first-child {
+.navCover .btnNavMenu:first-child {
   margin-right: 30px;
 
   /* Mobile */
   @media (max-width: 480px) {
     margin-right: 10px;
   }
-}
-
-.navCover button.active {
-  color: var(--primary);
 }
 
 .navCover .pageControl,
