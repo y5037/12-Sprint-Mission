@@ -8,6 +8,7 @@ import GeneralItemsList from "../../Components/ProductList/GeneralItem";
 function ItemsListPage() {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
+  const [isDataCount, setIsDataCount] = useState();
   return (
     <>
       <ItemListNav />
@@ -18,12 +19,14 @@ function ItemsListPage() {
           setPage={setPage}
           pageCount={pageCount}
           setPageCount={setPageCount}
+          setIsDataCount={setIsDataCount}
         />
         <HandlePagiNation
           page={page}
           setPage={setPage}
           pageCount={pageCount}
           setPageCount={setPageCount}
+          isDataCount={isDataCount}
         />
       </div>
     </>

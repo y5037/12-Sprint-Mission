@@ -34,7 +34,13 @@ function GeneralItem({ item }) {
   );
 }
 
-function GeneralItemsList({ page, setPage, pageCount, setPageCount }) {
+function GeneralItemsList({
+  page,
+  setPage,
+  pageCount,
+  setPageCount,
+  setIsDataCount,
+}) {
   const [productContainer, setProductContainer] = useState([]);
   return (
     <div className={`${styles.productContents} ${styles.generalProduct}`}>
@@ -45,6 +51,7 @@ function GeneralItemsList({ page, setPage, pageCount, setPageCount }) {
         setPage={setPage}
         pageCount={pageCount}
         setPageCount={setPageCount}
+        setIsDataCount={setIsDataCount}
       />
       <ul className={styles.productCover}>
         {productContainer.length !== 0 ? (

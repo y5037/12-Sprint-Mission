@@ -1,21 +1,12 @@
 import styles from "../../Styles/App/Pagination.module.css";
 import arrowPrevImg from "../../Assets/images/app/pagination/arrow_left.svg";
 import arrowNextImg from "../../Assets/images/app/pagination/arrow_right.svg";
-import { useMediaQuery } from "react-responsive";
 
-function PaginationContainer({ page, setPage, pageCount }) {
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1200px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
-  const isMediaQuery = isMobile ? 4 : isTablet ? 6 : 10;
-  const itemCountPerPage = Math.ceil(pageCount / isMediaQuery); // 페이지 당 보여줄 데이터 개수
-
+function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
+  const itemCountPerPage = Math.ceil(pageCount / isDataCount); // 페이지 당 보여줄 데이터 개수
   const btnPage = 5; // 한 페이지당 pagination 5개 출력
   const currentSet = Math.ceil(page / btnPage);
-  const totalPages = Math.ceil(pageCount / isMediaQuery);
+  const totalPages = Math.ceil(pageCount / isDataCount);
   const noPrev = page === 1;
   const noNext = page + itemCountPerPage - 1 >= totalPages;
   const startPage = (currentSet - 1) * btnPage + 1;
