@@ -1,3 +1,4 @@
+import { calculatePagination } from "../../utils/calculatorPagination";
 import styles from "../../styles/App/Pagination.module.css";
 import arrowPrevImg from "../../assets/images/app/pagination/arrow_left.svg";
 import arrowNextImg from "../../assets/images/app/pagination/arrow_right.svg";
@@ -5,12 +6,16 @@ import arrowNextImg from "../../assets/images/app/pagination/arrow_right.svg";
 function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
   const itemCountPerPage = Math.ceil(pageCount / isDataCount); // 페이지 당 보여줄 데이터 개수
   const btnPage = 5; // 한 페이지당 pagination 5개 출력
-  const currentSet = Math.ceil(page / btnPage);
-  const totalPages = Math.ceil(pageCount / isDataCount);
+
+  const { totalPages, currentSet, startPage, endPage } = calculatePagination({
+    page,
+    pageCount,
+    isDataCount,
+    btnPage,
+  });
+
   const noPrev = page === 1;
   const noNext = page + itemCountPerPage - 1 >= totalPages;
-  const startPage = (currentSet - 1) * btnPage + 1;
-  const endPage = Math.min(startPage + btnPage - 1, totalPages);
 
   return (
     <ul className={styles.pagination}>
