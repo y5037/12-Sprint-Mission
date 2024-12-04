@@ -1,6 +1,6 @@
-import styles from "../../Styles/App/Pagination.module.css";
-import arrowPrevImg from "../../Assets/images/app/pagination/arrow_left.svg";
-import arrowNextImg from "../../Assets/images/app/pagination/arrow_right.svg";
+import styles from "../../styles/App/Pagination.module.css";
+import arrowPrevImg from "../../assets/images/app/pagination/arrow_left.svg";
+import arrowNextImg from "../../assets/images/app/pagination/arrow_right.svg";
 
 function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
   const itemCountPerPage = Math.ceil(pageCount / isDataCount); // 페이지 당 보여줄 데이터 개수

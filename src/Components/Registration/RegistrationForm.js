@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import EmailValidation from "../App/EmailValidation";
-import styles from "../../Styles/loginRegistration/loginRegistration.module.css";
-import LogoImg from "../../Assets/images/loginRegistration/login_logo.png";
-import GoogleImg from "../../Assets/images/loginRegistration/google.svg";
-import KaKaoImg from "../../Assets/images/loginRegistration/kakao.svg";
-import InVisibleImg from "../../Assets/images/loginRegistration/btn_invisible.svg";
-import VisibleImg from "../../Assets/images/loginRegistration/btn_visible.svg";
+import styles from "../../styles/loginRegistration/loginRegistration.module.css";
+import LogoImg from "../../assets/images/loginRegistration/login_logo.png";
+import GoogleImg from "../../assets/images/loginRegistration/google.svg";
+import KaKaoImg from "../../assets/images/loginRegistration/kakao.svg";
+import InVisibleImg from "../../assets/images/loginRegistration/btn_invisible.svg";
+import VisibleImg from "../../assets/images/loginRegistration/btn_visible.svg";
 
 function RegistrationForm() {
   const [getId, setGetId] = useState("");

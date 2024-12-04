@@ -1,6 +1,6 @@
-import arrowDown from "../../Assets/images/productList/select_down.svg";
-import productSearch from "../../Assets/images/productList/pd_search.png";
-import styles from "../../Styles/ProductList/ProductList.module.css";
+import arrowDown from "../../assets/images/productList/select_down.svg";
+import productSearch from "../../assets/images/productList/pd_search.png";
+import styles from "../../styles/ProductList/ProductList.module.css";
 import getProductData from "../../Api/api";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";

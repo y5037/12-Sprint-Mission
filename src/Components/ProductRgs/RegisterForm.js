@@ -1,4 +1,4 @@
-import styles from "../../Styles/ProductRgs/ProductRgs.module.css";
+import styles from "../../styles/ProductRgs/ProductRgs.module.css";
 import { useState, useEffect } from "react";
 import RegisterInput from "./RegisterInput";
 import RegisterImgFile from "./RegisterImgFile";

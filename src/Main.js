@@ -1,4 +1,4 @@
-import "./Styles/App/Reset.css";
+import "./styles/App/Reset.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./Components/App/ScrollToTop";
 import { lazy, Suspense } from "react";

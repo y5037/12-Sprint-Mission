@@ -1,4 +1,4 @@
-import styles from "../../Styles/App/Loading.module.css";
+import styles from "../../styles/App/Loading.module.css";
 import React from "react";
 
 export const Loading = () => {

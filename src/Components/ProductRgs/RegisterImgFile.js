@@ -1,5 +1,5 @@
-import styles from "../../Styles/ProductRgs/ProductRgs.module.css";
-import uploadImg from "../../Assets/images/productRgs/upload.svg";
+import styles from "../../styles/ProductRgs/ProductRgs.module.css";
+import uploadImg from "../../assets/images/productRgs/upload.svg";
 import ImgPreview from "./ImgPreview";
 import { useEffect, useRef, useState } from "react";
 

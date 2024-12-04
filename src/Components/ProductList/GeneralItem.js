@@ -1,8 +1,8 @@
 import { useState } from "react";
-import defaultImg from "../../Assets/images/app/common/no_img.jpg";
-import btnWish from "../../Assets/images/productList/btn_wish.png";
-import styles from "../../Styles/ProductList/ProductList.module.css";
-import notFoundImg from "../../Assets/images/productList/not_found.png";
+import defaultImg from "../../assets/images/app/common/no_img.jpg";
+import btnWish from "../../assets/images/productList/btn_wish.png";
+import styles from "../../styles/ProductList/ProductList.module.css";
+import notFoundImg from "../../assets/images/productList/not_found.png";
 import ProductSearchForm from "./SearchForm";
 
 function GeneralItem({ item }) {
