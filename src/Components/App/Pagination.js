@@ -17,6 +17,13 @@ function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
   const noPrev = page === 1;
   const noNext = page + itemCountPerPage - 1 >= totalPages;
 
+  function generatePageNumbers(startPage, endPage) {
+    return Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i
+    );
+  }
+
   return (
     <ul className={styles.pagination}>
       {currentSet > 1 && (
@@ -27,15 +34,13 @@ function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
           <img src={arrowPrevImg} alt="<" />
         </li>
       )}
-      {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+      {generatePageNumbers(startPage, endPage).map((pageNumber) => (
         <li
-          key={i}
-          className={`${styles.page} ${
-            page === startPage + i && styles.active
-          }`}
-          onClick={() => setPage(startPage + i)}
+          key={pageNumber}
+          className={`${styles.page} ${page === pageNumber && styles.active}`}
+          onClick={() => setPage(pageNumber)}
         >
-          {startPage + i}
+          {pageNumber}
         </li>
       ))}
       {currentSet < Math.ceil(totalPages / ITEMS_PER_PAGINATION) && (
