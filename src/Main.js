@@ -5,6 +5,7 @@ import ScrollToTop from "./Components/App/ScrollToTop";
 import Loading from "./Components/App/Loading";
 import LoginPage from "./Pages/LoginPage/LoginPage";
 import RegistrationPage from "./Pages/RegistrationPage/RegistrationPage";
+import ProductDetailPage from "./Pages/ProductDetailPage/ProductDetailPage";
 
 const App = lazy(() => import("./Components/App/App"));
 const HomePage = lazy(() => import("./Pages/HomePage/HomePage"));
@@ -34,6 +35,7 @@ function Main() {
             <Route path="items">
               <Route index element={<ItemsListPage />} />
               <Route path="additem" element={<ProductRgsPage />} />
+              <Route path=":id" element={<ProductDetailPage />} />
             </Route>
           </Route>
         </Routes>

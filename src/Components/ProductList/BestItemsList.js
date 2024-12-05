@@ -2,6 +2,7 @@ import { useState } from "react";
 import styles from "../../styles/ProductList/ProductList.module.css";
 import BestListFilter from "./BestListFilter";
 import BestItem from "./BestItem";
+import { Link } from "react-router-dom";
 
 function BestItemsList() {
   const [productList, setProductList] = useState([]);
@@ -17,7 +18,9 @@ function BestItemsList() {
           {productList.map((item) => {
             return (
               <li key={item.id} className={styles.item}>
-                <BestItem item={item} />
+                <Link to={`/items/${item.id}`}>
+                  <BestItem item={item} />
+                </Link>
               </li>
             );
           })}
