@@ -5,13 +5,13 @@ import arrowNextImg from "../../assets/images/app/pagination/arrow_right.svg";
 
 function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
   const itemCountPerPage = Math.ceil(pageCount / isDataCount); // 페이지 당 보여줄 데이터 개수
-  const btnPage = 5; // 한 페이지당 pagination 5개 출력
+  const ITEMS_PER_PAGINATION = 5; // 한 페이지당 pagination 5개 출력
 
   const { totalPages, currentSet, startPage, endPage } = calculatePagination({
     page,
     pageCount,
     isDataCount,
-    btnPage,
+    ITEMS_PER_PAGINATION,
   });
 
   const noPrev = page === 1;
@@ -38,7 +38,7 @@ function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
           {startPage + i}
         </li>
       ))}
-      {currentSet < Math.ceil(totalPages / btnPage) && (
+      {currentSet < Math.ceil(totalPages / ITEMS_PER_PAGINATION) && (
         <li
           className={`${styles.move} ${noNext && styles.invisible}`}
           onClick={() => setPage(endPage + 1)}
