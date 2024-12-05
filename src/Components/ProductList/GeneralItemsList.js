@@ -15,7 +15,6 @@ function GeneralItemsList({
   return (
     <div className={`${styles.productContents} ${styles.generalProduct}`}>
       <GeneralSearchForm
-        productContainer={productContainer}
         setProductContainer={setProductContainer}
         page={page}
         setPage={setPage}
