@@ -8,7 +8,7 @@ function GeneralItem({ item }) {
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
-  const priceNum = item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const formattedPrice = item.price.toLocaleString();
   return (
     <>
       <div className={styles.thumbnail}>
@@ -22,7 +22,7 @@ function GeneralItem({ item }) {
       </div>
       <div className={styles.textCover}>
         <p className={styles.itemName}>{item.name}</p>
-        <p className={styles.itemPrice}>{priceNum}원</p>
+        <p className={styles.itemPrice}>{formattedPrice}원</p>
         <div className={styles.viewWish}>
           <img src={btnWishImg} alt="찜하기" />
           <p className={styles.numWish}>{item.favoriteCount}</p>

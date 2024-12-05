@@ -8,9 +8,8 @@ function BestItem({ item }) {
   const handleImgError = (e) => {
     e.target.src = defaultImg;
   };
-  const formattedPrice = item.price
-    .toString()
-    .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  const formattedPrice = item.price.toLocaleString();
+
   return (
     <>
       <div className={`${styles.thumbnail} ${styles.skeleton}`}>
