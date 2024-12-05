@@ -20,7 +20,7 @@ function GeneralSearchForm({
   );
 
   const [orderBy, setOrderBy] = useState("recent");
-  const [search, setSearch] = useState("");
+  const [keyword, setKeyword] = useState("");
   const [filter, setFilter] = useState("최신순");
   const [toggle, setToggle] = useState(true);
 
@@ -80,16 +80,16 @@ function GeneralSearchForm({
 
   useEffect(() => {
     handleLoad({
+      page,
       orderBy,
       pageSize: isItemCount,
-      search,
-      page,
+      keyword: keyword,
     });
-  }, [orderBy, search, page, isItemCount]);
+  }, [orderBy, keyword, page, isItemCount]);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearch(e.target.value);
+    setKeyword(e.target.value);
     setPage(1);
   };
   return (

@@ -10,8 +10,8 @@ function BestListFilter({ setProductList }) {
   );
 
   const [orderBy, setOrderby] = useState("favorite");
-  const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [keyword, setKeyword] = useState("");
 
   const handleLoad = async (options) => {
     try {
@@ -40,12 +40,12 @@ function BestListFilter({ setProductList }) {
 
   useEffect(() => {
     handleLoad({
+      page,
       orderBy,
       pageSize: isItemCount,
-      search,
-      page,
+      keyword,
     });
-  }, [orderBy, search, page, isItemCount]);
+  }, [orderBy, keyword, page, isItemCount]);
 }
 
 export default BestListFilter;
