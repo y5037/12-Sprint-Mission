@@ -21,7 +21,7 @@ function ProductDetailPage() {
     }
 
     if (!response.ok) {
-      throw new Error("상품을 불러오는 데 실패했습니다.");
+      throw new Error("정보를 불러오는 데 실패했습니다.");
     }
   }
   useEffect(() => {

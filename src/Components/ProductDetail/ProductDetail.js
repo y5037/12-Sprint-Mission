@@ -1,11 +1,39 @@
+import styled from "styled-components";
 import styles from "../../styles/ProductDetail/ProductDetail.module.css";
 import profileDefaultImg from "../../assets/images/productDetail/default_profile.svg";
 import favoriteImg from "../../assets/images/productDetail/favorite.svg";
-import btnMoreImg from "../../assets/images/productDetail/btn_more.svg";
+import OptionMenuImg from "../../assets/images/productDetail/option_menu.svg";
+import { useState } from "react";
+
+const SelectBox = styled.div`
+  position: absolute;
+  right: 0;
+  top: 30px;
+  border: 1px solid var(--gray-300);
+  border-radius: 10px;
+  background: var(--white);
+`;
+
+const SelectButton = styled.div`
+  padding: 15px 40px;
+  color: var(--gray-500);
+  font-size: 1.6em;
+  cursor: pointer;
+
+  &:first-child {
+    border-bottom: 1px solid var(--gray-300);
+  }
+`;
 
 function ProductDetail({ data }) {
   const formattedPrice = Number(data.price).toLocaleString();
   const formattedDate = String(data.createdAt).slice(0, 10);
+
+  const [postOption, setPostOption] = useState(false);
+
+  const handlePostOptionClick = () => {
+    postOption ? setPostOption(false) : setPostOption(true);
+  };
   return (
     <div className={styles.pagiContainer}>
       <div className={styles.section1}>
@@ -17,7 +45,17 @@ function ProductDetail({ data }) {
             <div className={styles.titleCover}>
               <p className={styles.title}>{data.name}</p>
               <p className={styles.price}>{formattedPrice}원</p>
-              <img src={btnMoreImg} alt="더보기" />
+              <div className={styles.btnMore} onClick={handlePostOptionClick}>
+                <img src={OptionMenuImg} alt="더보기" />
+                {postOption ? (
+                  <SelectBox>
+                    <SelectButton>수정하기</SelectButton>
+                    <SelectButton>삭제하기</SelectButton>
+                  </SelectBox>
+                ) : (
+                  ""
+                )}
+              </div>
             </div>
             <div className={styles.descriptionCover}>
               <p className={styles.subTitle}>상품 소개</p>

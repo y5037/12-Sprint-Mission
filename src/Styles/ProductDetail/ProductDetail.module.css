@@ -127,6 +127,8 @@
   font-size: 1.6em;
   font-weight: 300;
   color: var(--gray-600);
+  white-space: pre-line;
+  word-break: keep-all;
 }
 
 .tagsCover ul {
