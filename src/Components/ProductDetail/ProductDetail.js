@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import styles from "../../styles/productDetail/productDetail.module.css";
+import productDefaultImg from "../../assets/images/app/common/no_img.jpg";
 import profileDefaultImg from "../../assets/images/productDetail/default_profile.svg";
 import favoriteImg from "../../assets/images/productDetail/favorite.svg";
 import OptionMenuImg from "../../assets/images/productDetail/option_menu.svg";
@@ -31,6 +32,9 @@ function ProductDetail({ data }) {
 
   const [postOption, setPostOption] = useState(false);
 
+  const handleImgError = (e) => {
+    e.target.src = productDefaultImg;
+  };
   const handlePostOptionClick = () => {
     postOption ? setPostOption(false) : setPostOption(true);
   };
@@ -38,7 +42,7 @@ function ProductDetail({ data }) {
     <div className={styles.pagiContainer}>
       <div className={styles.section1}>
         <div className={styles.productImg}>
-          <img src={data.images} alt={data.name} />
+          <img src={data.images} onError={handleImgError} alt={data.name} />
         </div>
         <div className={styles.descriptionContainer}>
           <div>

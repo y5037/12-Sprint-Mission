@@ -1,12 +1,12 @@
 import { useState } from "react";
 import styles from "../../styles/productList/productList.module.css";
-import defaultImg from "../../assets/images/app/common/no_img.jpg";
+import productDefaultImg from "../../assets/images/app/common/no_img.jpg";
 import btnWishImg from "../../assets/images/productList/btn_wish.png";
 
 function GeneralItem({ item }) {
   const [loaded, setLoaded] = useState(false);
   const handleImgError = (e) => {
-    e.target.src = defaultImg;
+    e.target.src = productDefaultImg;
   };
   const formattedPrice = item.price.toLocaleString();
   return (
