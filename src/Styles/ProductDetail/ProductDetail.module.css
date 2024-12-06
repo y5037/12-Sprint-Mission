@@ -44,6 +44,7 @@
   height: max-content;
   margin-right: 25px;
   border-radius: 10px;
+  border: 1px solid var(--gray-50);
   overflow: hidden;
 
   /* Mobile */
@@ -346,4 +347,10 @@ textarea::placeholder {
 
 .btnBack img {
   margin-left: 5px;
+}
+
+.emptyComment {
+  padding-bottom: 25px;
+  justify-items: center;
+  clear: both;
 }

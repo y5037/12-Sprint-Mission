@@ -1,14 +1,23 @@
 import { format, register } from "timeago.js";
 import { useEffect, useRef, useState } from "react";
-import { SelectBox, SelectButton } from "../../styles/productDetail/SelectBox";
 import { Link } from "react-router-dom";
 import koLocale from "timeago.js/lib/lang/ko";
 import styles from "../../styles/productDetail/productDetail.module.css";
+import { SelectBox, SelectButton } from "../../styles/productDetail/SelectBox";
 import optionMenuImg from "../../assets/images/productDetail/option_menu.svg";
 import profileDefaultImg from "../../assets/images/productDetail/default_profile.svg";
 import btnBackImg from "../../assets/images/app/button/btn_back.svg";
+import emptyCommentImg from "../../assets/images/productDetail/empty_comment.svg";
 
 register("ko", koLocale);
+
+function EmptyPlaceholder() {
+  return (
+    <div className={styles.emptyComment}>
+      <img src={emptyCommentImg} alt="댓글이 없어요" />
+    </div>
+  );
+}
 
 function InquiryRegister({ commentsData }) {
   const { list, nextCursor } = commentsData;
@@ -67,6 +76,8 @@ function InquiryRegister({ commentsData }) {
             등록
           </button>
         </form>
+        {/* length 속성을 읽을 수 없다는 오류가 발생되어 Optional Chaining 연산자 사용 */}
+        {list?.length === 0 && <EmptyPlaceholder />}
         <ul className={styles.commentList}>
           {list &&
             list.map((comment, i) => {
@@ -108,6 +119,7 @@ function InquiryRegister({ commentsData }) {
               );
             })}
         </ul>
+
         <Link to="/items">
           <div className={styles.btnCover}>
             <button type="button" className={styles.btnBack}>
