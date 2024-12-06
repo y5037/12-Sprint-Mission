@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { NumericFormat } from "react-number-format";
-import styles from "../../styles/ProductRgs/ProductRgs.module.css";
+import styles from "../../styles/productRgs/productRgs.module.css";
 import deleteBtnImg from "../../assets/images/productRgs/cancel.svg";
 
 // 상품 정보 등록

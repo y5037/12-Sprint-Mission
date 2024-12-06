@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/ProductList/ProductList.module.css";
+import styles from "../../styles/productList/productList.module.css";
 import notFoundImg from "../../assets/images/productList/not_found.png";
 import GeneralSearchForm from "./GeneralSearchForm";
 import GeneralItem from "./GeneralItem";

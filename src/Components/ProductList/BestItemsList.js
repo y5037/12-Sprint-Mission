@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/ProductList/ProductList.module.css";
+import styles from "../../styles/productList/productList.module.css";
 import BestListFilter from "./BestListFilter";
 import BestItem from "./BestItem";
 import { Link } from "react-router-dom";

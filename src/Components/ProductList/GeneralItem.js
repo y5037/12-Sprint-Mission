@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/ProductList/ProductList.module.css";
+import styles from "../../styles/productList/productList.module.css";
 import defaultImg from "../../assets/images/app/common/no_img.jpg";
 import btnWishImg from "../../assets/images/productList/btn_wish.png";
 

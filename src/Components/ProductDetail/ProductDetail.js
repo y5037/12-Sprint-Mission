@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import styles from "../../styles/ProductDetail/ProductDetail.module.css";
+import styles from "../../styles/productDetail/productDetail.module.css";
 import profileDefaultImg from "../../assets/images/productDetail/default_profile.svg";
 import favoriteImg from "../../assets/images/productDetail/favorite.svg";
 import OptionMenuImg from "../../assets/images/productDetail/option_menu.svg";

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import styles from "../../styles/Main/Main.module.css";
+import styles from "../../styles/main/main.module.css";
 import logoImg from "../../assets/images/app/navi/logo.svg";
 import homeContent1Img from "../../assets/images/app/home/Img_home_01.png";
 import homeContent2Img from "../../assets/images/app/home/Img_home_02.png";

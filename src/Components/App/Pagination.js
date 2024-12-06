@@ -1,5 +1,5 @@
 import { calculatePagination } from "../../utils/calculatorPagination";
-import styles from "../../styles/App/Pagination.module.css";
+import styles from "../../styles/app/pagination.module.css";
 import arrowPrevImg from "../../assets/images/app/pagination/arrow_left.svg";
 import arrowNextImg from "../../assets/images/app/pagination/arrow_right.svg";
 

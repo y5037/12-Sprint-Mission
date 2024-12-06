@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "../../styles/ProductList/ProductList.module.css";
+import styles from "../../styles/productList/productList.module.css";
 import { BestItemsList } from "../../Components/ProductList/BestItemsList";
 import ItemsListNav from "../../Components/App/ItemsListNav";
 import PaginationComponents from "../../Components/App/Pagination";

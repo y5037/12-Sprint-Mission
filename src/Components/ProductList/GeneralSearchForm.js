@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "../../styles/ProductList/ProductList.module.css";
+import styles from "../../styles/productList/productList.module.css";
 import arrowDownImg from "../../assets/images/productList/select_down.svg";
 import productSearchImg from "../../assets/images/productList/pd_search.png";
 import getProductData from "../../Api/api";

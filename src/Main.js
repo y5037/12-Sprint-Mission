@@ -1,6 +1,6 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./styles/App/Reset.css";
+import "./styles/app/reset.css";
 import ScrollToTop from "./Components/App/ScrollToTop";
 import Loading from "./Components/App/Loading";
 import LoginPage from "./Pages/LoginPage/LoginPage";

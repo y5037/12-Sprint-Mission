@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "../../styles/ProductRgs/ProductRgs.module.css";
+import styles from "../../styles/productRgs/productRgs.module.css";
 import RegisterInput from "./RegisterInput";
 import RegisterImgFile from "./RegisterImgFile";
 
