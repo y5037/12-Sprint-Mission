@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import ProductDetail from "../../Components/ProductDetail/ProductDetail";
 import ItemListNav from "../../Components/App/ItemsListNav";
 import InquiryRegister from "../../Components/ProductDetail/InquiryRegister";
-import { getComments, getProductId } from "../../Api/api";
+import { createComment, getComments, getProductId } from "../../Api/api";
 
 function ProductDetailPage() {
   const [productData, setProductData] = useState("");
   const [commentsData, setCommentsData] = useState("");
+  const [comment, setComment] = useState("");
 
   const params = useParams();
   const BASE_URL = "https://panda-market-api.vercel.app";
@@ -21,11 +22,15 @@ function ProductDetailPage() {
     getComments(productId, setCommentsData);
   }, []);
 
+  useEffect(() => {
+    createComment(productId, comment);
+  });
+
   return (
     <>
       <ItemListNav />
       <ProductDetail productData={productData} />
-      <InquiryRegister commentsData={commentsData} />
+      <InquiryRegister commentsData={commentsData} setComment={setComment} />
     </>
   );
 }

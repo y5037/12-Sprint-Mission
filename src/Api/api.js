@@ -45,4 +45,26 @@ export async function getComments(productId, setCommentsData) {
   }
 }
 
+// 디테일 댓글 등록
+export async function createComment(productId, comment) {
+  // 로그인 구현을 안해서인지 접근 권한 없음 - 401 에러 발생으로 댓글달기 구현 보류
+  // const surveyData = {
+  //   writer: {
+  //     image: "",
+  //     nickname: "유네림",
+  //   },
+  //   content: comment,
+  //   // updatedAt: new Date(),
+  // };
+  // const response = await fetch(`${BASE_URL}/products/${productId}/comments`, {
+  //   method: "POST",
+  //   // 자바스크립트 객체를 JSON 문자열로 변환하여 post 보내기
+  //   body: JSON.stringify(surveyData),
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  // });
+  // const data = await response.json();
+}
+
 export default getProductData;

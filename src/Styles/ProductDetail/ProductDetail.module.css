@@ -178,6 +178,7 @@
 }
 
 .profileImg img {
+  min-height: 32px;
   object-fit: cover;
 }
 
