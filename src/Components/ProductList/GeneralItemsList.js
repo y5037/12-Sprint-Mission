@@ -3,6 +3,7 @@ import styles from "../../styles/productList/productList.module.css";
 import notFoundImg from "../../assets/images/productList/not_found.png";
 import GeneralSearchForm from "./GeneralSearchForm";
 import GeneralItem from "./GeneralItem";
+import { Link } from "react-router-dom";
 
 function EmptyPlaceholder() {
   return (
@@ -37,7 +38,9 @@ function GeneralItemsList({
           productContainer.map((item) => {
             return (
               <li key={item.id} className={styles.item}>
-                <GeneralItem item={item} />
+                <Link to={`/items/${item.id}`}>
+                  <GeneralItem item={item} />
+                </Link>
               </li>
             );
           })}
