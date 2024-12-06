@@ -9,8 +9,8 @@ import ProductDetailPage from "./Pages/ProductDetailPage/ProductDetailPage";
 
 const App = lazy(() => import("./Components/App/App"));
 const HomePage = lazy(() => import("./Pages/HomePage/HomePage"));
-const ItemsListPage = lazy(() =>
-  import("./Pages/ProductListPage/ItemsListPage")
+const ProductList = lazy(() =>
+  import("./Pages/ProductListPage/ProductListPage")
 );
 const ProductRgsPage = lazy(() =>
   import("./Pages/ProductRgsPage/ProductRgsPage")
@@ -33,7 +33,7 @@ function Main() {
             <Route path="login" element={<LoginPage />} />
             <Route path="signup" element={<RegistrationPage />} />
             <Route path="items">
-              <Route index element={<ItemsListPage />} />
+              <Route index element={<ProductList />} />
               <Route path="additem" element={<ProductRgsPage />} />
               <Route path=":id" element={<ProductDetailPage />} />
             </Route>

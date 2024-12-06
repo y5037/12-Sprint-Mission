@@ -5,7 +5,7 @@ import ItemsListNav from "../../Components/App/ItemsListNav";
 import PaginationComponents from "../../Components/App/Pagination";
 import GeneralItemsList from "../../Components/ProductList/GeneralItemsList";
 
-function ItemsListPage() {
+function ProductList() {
   const [page, setPage] = useState(1);
   const [pageCount, setPageCount] = useState(1);
   const [isDataCount, setIsDataCount] = useState();
@@ -33,4 +33,4 @@ function ItemsListPage() {
   );
 }
 
-export default ItemsListPage;
+export default ProductList;
