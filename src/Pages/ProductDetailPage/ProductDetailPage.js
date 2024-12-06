@@ -2,38 +2,30 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDetail from "../../Components/ProductDetail/ProductDetail";
 import ItemListNav from "../../Components/App/ItemsListNav";
+import InquiryRegister from "../../Components/ProductDetail/InquiryRegister";
+import { getComments, getProductId } from "../../Api/api";
 
 function ProductDetailPage() {
-  const [data, setData] = useState("");
+  const [productData, setProductData] = useState("");
+  const [commentsData, setCommentsData] = useState("");
 
   const params = useParams();
   const BASE_URL = "https://panda-market-api.vercel.app";
+  const productId = params.id;
 
-  async function getProductId() {
-    const productId = params.id;
-    const response = await fetch(`${BASE_URL}/products/${productId}`);
-
-    try {
-      const body = await response.json();
-      setData(body);
-    } catch (error) {
-      console.log(error);
-    }
-
-    if (!response.ok) {
-      throw new Error("정보를 불러오는 데 실패했습니다.");
-    }
-  }
   useEffect(() => {
-    getProductId();
+    getProductId(productId, setProductData);
   }, []);
 
-  console.log(data);
+  useEffect(() => {
+    getComments(productId, setCommentsData);
+  }, []);
 
   return (
     <>
       <ItemListNav />
-      <ProductDetail data={data} />
+      <ProductDetail productData={productData} />
+      <InquiryRegister commentsData={commentsData} />
     </>
   );
 }
