@@ -39,6 +39,7 @@
   font-size: 1.6em;
   font-weight: 500;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .btnSubmit:disabled {

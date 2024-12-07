@@ -19,9 +19,26 @@ function EmptyPlaceholder() {
   );
 }
 
+function CommentEditUI({ setEditOpen, setActiveIndex }) {
+  return (
+    <div className={styles.editContainer}>
+      <button
+        onClick={() => {
+          setEditOpen(null);
+          setActiveIndex(null);
+        }}
+      >
+        취소
+      </button>
+      <button>수정 완료</button>
+    </div>
+  );
+}
+
 function InquiryRegister({ commentsData, setComment }) {
   const { list, nextCursor } = commentsData;
-  const [selectIndex, setSelectIndex] = useState();
+  const [showSelect, setShowSelect] = useState();
+  const [showEdit, setShowEdit] = useState();
   const [commentValue, setCommentValue] = useState();
   const [submit, setSubmit] = useState(false);
   const outRef = useRef(null);
@@ -30,23 +47,18 @@ function InquiryRegister({ commentsData, setComment }) {
     e.target.src = profileDefaultImg;
   };
 
-  function handleOptionClick(i) {
-    setSelectIndex(i);
-  }
-
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // 해당 이벤트가 영역 밖이라면 케밥 버튼 비활성화
+      // 해당 이벤트가 영역 밖이라면 셀렉트 비활성화
       if (outRef.current && !outRef.current.contains(event.target)) {
-        setSelectIndex("");
+        setShowSelect(null);
       }
     };
-
-    document.addEventListener("click", handleClickOutside, true);
+    window.addEventListener("mouseup", handleClickOutside, true);
     return () => {
-      document.removeEventListener("click", handleClickOutside, true);
+      window.removeEventListener("mouseup", handleClickOutside, true);
     };
-  }, [handleOptionClick]);
+  }, []);
 
   const handleGetComment = (e) => {
     if (e.target.value) {
@@ -60,6 +72,7 @@ function InquiryRegister({ commentsData, setComment }) {
   const onSubmit = (e) => {
     e.preventDefault();
     setComment(commentValue);
+    setCommentValue("");
   };
 
   return (
@@ -92,20 +105,39 @@ function InquiryRegister({ commentsData, setComment }) {
               return (
                 <li key={comment.id}>
                   <div className={styles.contentText}>
-                    <p>{comment.content}</p>
-                    <div
-                      className={styles.btnMore}
-                      onClick={() => handleOptionClick(i)}
-                      ref={outRef}
-                    >
-                      <img src={optionMenuImg} alt="더보기" />
-                      {i === selectIndex && (
-                        <SelectBox>
-                          <SelectButton>수정하기</SelectButton>
-                          <SelectButton>삭제하기</SelectButton>
-                        </SelectBox>
-                      )}
-                    </div>
+                    {showEdit === i ? (
+                      <>
+                        <textarea defaultValue={comment.content} />
+                        <CommentEditUI
+                          setEditOpen={setShowEdit}
+                          setActiveIndex={setShowSelect}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <p>{comment.content}</p>
+                        <div className={styles.btnMore}>
+                          <img
+                            src={optionMenuImg}
+                            alt="더보기"
+                            onClick={() => setShowSelect(i)}
+                          />
+                          {showSelect === i && (
+                            <>
+                              <SelectBox>
+                                <SelectButton
+                                  onClick={() => setShowEdit(i)}
+                                  ref={outRef}
+                                >
+                                  수정하기
+                                </SelectButton>
+                                <SelectButton>삭제하기</SelectButton>
+                              </SelectBox>
+                            </>
+                          )}
+                        </div>
+                      </>
+                    )}
                   </div>
                   <div className={styles.author}>
                     <div className={styles.profileImg}>
@@ -127,13 +159,13 @@ function InquiryRegister({ commentsData, setComment }) {
             })}
         </ul>
 
-        <Link to="/items">
-          <div className={styles.btnCover}>
+        <div className={styles.btnCover}>
+          <Link to="/items">
             <button type="button" className={styles.btnBack}>
               목록으로 돌아가기 <img src={btnBackImg} alt="<-" />
             </button>
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );

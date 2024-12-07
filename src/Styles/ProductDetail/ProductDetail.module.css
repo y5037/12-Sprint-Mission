@@ -247,7 +247,7 @@ textarea::placeholder {
   display: inline-block;
   height: 42px;
   float: right;
-  margin-top: 15px;
+  margin: 15px 0 24px;
   padding: 3px 25px 0;
   border-radius: 8px;
   transition: 0.3s;
@@ -261,7 +261,6 @@ textarea::placeholder {
 .btnSubmit:hover {
   /* PC */
   @media (min-width: 1200px) {
-    cursor: inherit;
     background: var(--primary-foreground);
   }
 }
@@ -275,13 +274,9 @@ textarea::placeholder {
 }
 
 /* 코멘트 */
-.commentList {
-  padding-top: 24px;
-}
-
 .commentList li {
-  padding-bottom: 12px;
-  margin-bottom: 25px;
+  position: relative;
+  padding: 12px 0 25px;
   border-bottom: 1px solid var(--gray-200);
 }
 
@@ -291,12 +286,16 @@ textarea::placeholder {
   -webkit-flex-direction: row;
   flex-direction: row;
   justify-content: space-between;
-  position: relative;
 }
 
 .contentText p {
   margin-bottom: 25px;
   font-size: 1.4em;
+  font-weight: 300;
+}
+
+.contentText textarea {
+  margin-bottom: 15px;
 }
 
 .author {
@@ -305,6 +304,7 @@ textarea::placeholder {
   -webkit-flex-direction: row;
   flex-direction: row;
   align-items: center;
+  padding: 5px 0;
   font-size: 1.2em;
   font-weight: 300;
 }
@@ -319,6 +319,7 @@ textarea::placeholder {
 }
 
 .btnCover {
+  margin-top: calc(100vw * (60 / 1200));
   justify-items: center;
 }
 
@@ -351,7 +352,31 @@ textarea::placeholder {
 }
 
 .emptyComment {
-  padding-bottom: 25px;
-  justify-items: center;
   clear: both;
+  justify-items: center;
+}
+
+.editContainer {
+  position: absolute;
+  right: 0;
+  bottom: 25px;
+  font-size: 1.6em;
+}
+
+.editContainer button {
+  height: 42px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.editContainer button:first-child {
+  color: var(--gray-500);
+}
+
+.editContainer button:last-child {
+  margin-left: 10px;
+  padding: 0 23px;
+  border-radius: 8px;
+  background: var(--primary);
+  color: var(--white);
 }

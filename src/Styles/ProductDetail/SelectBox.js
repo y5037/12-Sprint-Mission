@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SelectBox = styled.div`
   position: absolute;
   right: 0;
-  top: 30px;
+  top: 40px;
   border: 1px solid var(--gray-300);
   border-radius: 10px;
   z-index: 1;

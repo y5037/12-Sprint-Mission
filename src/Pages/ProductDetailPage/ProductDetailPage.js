@@ -11,9 +11,9 @@ function ProductDetailPage() {
   const [comment, setComment] = useState("");
 
   const params = useParams();
-  const BASE_URL = "https://panda-market-api.vercel.app";
   const productId = params.id;
 
+  // API
   useEffect(() => {
     getProductId(productId, setProductData);
   }, []);
