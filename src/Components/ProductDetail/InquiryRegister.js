@@ -76,7 +76,7 @@ function InquiryRegister({ commentsData, setComment }) {
   };
 
   return (
-    <div className={styles.pagiContainer}>
+    <div className={`${styles.pagiContainer} ${styles.commentContainer}`}>
       <div className={styles.section2}>
         <form>
           <label htmlFor="inquiry" className={styles.subTitle}>

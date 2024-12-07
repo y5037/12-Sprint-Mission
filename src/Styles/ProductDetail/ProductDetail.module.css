@@ -17,6 +17,9 @@
     padding: 0 24px;
   }
 }
+.commentContainer {
+  margin-top: 0;
+}
 
 /* 상품 디테일 */
 .section1 {
