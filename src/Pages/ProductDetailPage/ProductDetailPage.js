@@ -22,9 +22,10 @@ function ProductDetailPage() {
     getComments(productId, setCommentsData);
   }, []);
 
-  useEffect(() => {
-    createComment(productId, comment);
-  });
+  // 로그인 기능 구현 전이므로 코멘트 API POST 구현 보류 (24.12.08)
+  // useEffect(() => {
+  //   createComment(productId, comment);
+  // });
 
   return (
     <>

@@ -60,20 +60,21 @@ function InquiryRegister({ commentsData, setComment }) {
     };
   }, []);
 
-  const handleGetComment = (e) => {
-    if (e.target.value) {
-      setSubmit(true);
-      setCommentValue(e.target.value);
-    } else {
-      setSubmit(false);
-    }
-  };
+  // 로그인 기능 구현 전이므로 코멘트 API POST 구현 보류 (24.12.08)
+  // const handleGetComment = (e) => {
+  //   if (e.target.value) {
+  //     setSubmit(true);
+  //     setCommentValue(e.target.value);
+  //   } else {
+  //     setSubmit(false);
+  //   }
+  // };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    setComment(commentValue);
-    setCommentValue("");
-  };
+  // const onSubmit = (e) => {
+  //   e.preventDefault();
+  //   setComment(commentValue);
+  //   setCommentValue("");
+  // };
 
   return (
     <div className={`${styles.pagiContainer} ${styles.commentContainer}`}>
@@ -85,14 +86,11 @@ function InquiryRegister({ commentsData, setComment }) {
           <textarea
             name="inquiry"
             id="inquiry"
-            onChange={handleGetComment}
+            // 로그인 기능 구현 전이므로 코멘트 API POST 구현 보류 (24.12.08)
+            // onChange={handleGetComment}
             placeholder="개인정보를 공유 및 요청하거나, 명예 훼손, 무단 광고, 불법 정보 유포시 모니터링 후 삭제될 수 있으며, 이에 대한 민형사상 책임은 게시자에게 있습니다."
           />
-          <button
-            onClick={onSubmit}
-            className={styles.btnSubmit}
-            disabled={submit ? false : true}
-          >
+          <button className={styles.btnSubmit} disabled={submit ? false : true}>
             등록
           </button>
         </form>
