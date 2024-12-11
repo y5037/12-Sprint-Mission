@@ -1,10 +1,10 @@
-import ItemListNav from "../../Components/App/ItemListNav";
+import ItemsListNav from "../../Components/App/ItemsListNav";
 import RegisterForm from "../../Components/ProductRgs/RegisterForm";
 
 function ProductRgsPage() {
   return (
     <>
-      <ItemListNav />
+      <ItemsListNav />
       <RegisterForm />
     </>
   );

@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-import EmailValidation from "../App/EmailValidation";
-import styles from "../../Styles/loginRegistration/loginRegistration.module.css";
-import LogoImg from "../../Assets/images/loginRegistration/login_logo.png";
-import GoogleImg from "../../Assets/images/loginRegistration/google.svg";
-import KaKaoImg from "../../Assets/images/loginRegistration/kakao.svg";
-import InVisibleImg from "../../Assets/images/loginRegistration/btn_invisible.svg";
-import VisibleImg from "../../Assets/images/loginRegistration/btn_visible.svg";
+import styles from "../../styles/loginRegistration/loginRegistration.module.css";
+import logoImg from "../../assets/images/loginRegistration/login_logo.png";
+import googleImg from "../../assets/images/loginRegistration/google.svg";
+import kaKaoImg from "../../assets/images/loginRegistration/kakao.svg";
+import inVisibleImg from "../../assets/images/loginRegistration/btn_invisible.svg";
+import visibleImg from "../../assets/images/loginRegistration/btn_visible.svg";
+import emailValidation from "../../utils/emailValidation";
 
 function LoginForm() {
   const [getId, setGetId] = useState("");
@@ -55,10 +55,10 @@ function LoginForm() {
         if (isEmail === "") {
           emailErrorContext("이메일을 입력해주세요", true);
           setEmailErrorChk(true);
-        } else if (isEmail !== "" && !EmailValidation(isEmail)) {
+        } else if (isEmail !== "" && !emailValidation(isEmail)) {
           emailErrorContext("잘못된 이메일 형식입니다", true);
           setEmailErrorChk(true);
-        } else if (EmailValidation(isEmail)) {
+        } else if (emailValidation(isEmail)) {
           emailErrorContext("", false);
           setEmailErrorChk(false);
         }
@@ -93,7 +93,7 @@ function LoginForm() {
         <div className={styles.signInLayout}>
           <div className={styles.logo}>
             <Link to="/">
-              <img src={LogoImg} alt="판다마켓" className={styles.logoImg} />
+              <img src={logoImg} alt="판다마켓" className={styles.logoImg} />
               <p className={styles.companyName}>판다마켓</p>
             </Link>
           </div>
@@ -135,7 +135,7 @@ function LoginForm() {
                     onClick={handlePasswordVisible}
                   >
                     <img
-                      src={passwordVisible ? VisibleImg : InVisibleImg}
+                      src={passwordVisible ? visibleImg : inVisibleImg}
                       alt="비밀번호 보기"
                     />
                   </button>
@@ -158,7 +158,7 @@ function LoginForm() {
               <div className={styles.cover}>
                 <div className={styles.btnGoogle}>
                   <div onClick={() => window.open("https://www.google.com")}>
-                    <img src={GoogleImg} alt="Google" />
+                    <img src={googleImg} alt="Google" />
                   </div>
                 </div>
                 <div className={styles.btnKakao}>
@@ -167,7 +167,7 @@ function LoginForm() {
                       window.open("https://www.kakaocorp.com/page/")
                     }
                   >
-                    <img src={KaKaoImg} alt="Kakao" />
+                    <img src={kaKaoImg} alt="Kakao" />
                   </div>
                 </div>
               </div>

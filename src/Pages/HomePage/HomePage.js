@@ -1,11 +1,11 @@
-import logo from "../../Assets/images/app/navi/logo.svg";
-import homeContent1 from "../../Assets/images/app/home/Img_home_01.png";
-import homeContent2 from "../../Assets/images/app/home/Img_home_02.png";
-import homeContent3 from "../../Assets/images/app/home/Img_home_03.png";
-import bannerImg1 from "../../Assets/images/app/home/Img_home_top.png";
-import bannerImg2 from "../../Assets/images/app/home/Img_home_bottom.png";
-import styles from "../../Styles/Main/Main.module.css";
 import { Link } from "react-router-dom";
+import styles from "../../styles/main/main.module.css";
+import logoImg from "../../assets/images/app/navi/logo.svg";
+import homeContent1Img from "../../assets/images/app/home/Img_home_01.png";
+import homeContent2Img from "../../assets/images/app/home/Img_home_02.png";
+import homeContent3Img from "../../assets/images/app/home/Img_home_03.png";
+import banner1Img from "../../assets/images/app/home/Img_home_top.png";
+import banner2Img from "../../assets/images/app/home/Img_home_bottom.png";
 import Footer from "../../Components/App/Footer";
 
 function HomePage() {
@@ -15,7 +15,7 @@ function HomePage() {
         <nav className={styles.headerWrap}>
           <div className={styles.logoWrap}>
             <Link to="/">
-              <img src={logo} alt="판다마켓" />
+              <img src={logoImg} alt="판다마켓" />
               <p className={styles.companyName}>판다마켓</p>
             </Link>
           </div>
@@ -38,14 +38,14 @@ function HomePage() {
               </Link>
             </div>
             <div className={styles.imgBox}>
-              <img src={bannerImg1} alt="메인 배너 이미지" />
+              <img src={banner1Img} alt="메인 배너 이미지" />
             </div>
           </div>
         </section>
         <section className={`${styles.section2} ${styles.type2}`}>
           <div className={styles.contentsWrap}>
             <div className={styles.imgBox}>
-              <img src={homeContent1} alt="인기상품 컨텐츠 이미지" />
+              <img src={homeContent1Img} alt="인기상품 컨텐츠 이미지" />
             </div>
             <div className={styles.txtBox}>
               <div className={styles.cover}>
@@ -80,12 +80,12 @@ function HomePage() {
               </div>
             </div>
             <div className={styles.imgBox}>
-              <img src={homeContent2} alt="구매 검색 컨텐츠 이미지" />
+              <img src={homeContent2Img} alt="구매 검색 컨텐츠 이미지" />
             </div>
           </div>
           <div className={styles.contentsWrap}>
             <div className={styles.imgBox}>
-              <img src={homeContent3} alt="상품 등록 컨텐츠 이미지" />
+              <img src={homeContent3Img} alt="상품 등록 컨텐츠 이미지" />
             </div>
             <div className={styles.txtBox}>
               <div className={styles.cover}>
@@ -114,7 +114,7 @@ function HomePage() {
               </p>
             </div>
             <div className={styles.imgBox}>
-              <img src={bannerImg2} alt="하단 배너 이미지" />
+              <img src={banner2Img} alt="하단 배너 이미지" />
             </div>
           </div>
         </section>

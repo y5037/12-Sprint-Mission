@@ -1,7 +1,7 @@
-import styles from "../../Styles/ProductRgs/ProductRgs.module.css";
-import uploadImg from "../../Assets/images/productRgs/upload.svg";
-import ImgPreview from "./ImgPreview";
 import { useEffect, useRef, useState } from "react";
+import styles from "../../styles/productRgs/productRgs.module.css";
+import uploadImg from "../../assets/images/productRgs/upload.svg";
+import ImgPreview from "./ImgPreview";
 
 // 상품 이미지 등록
 function RegisterImgFile({ imgFile, setImgFile }) {

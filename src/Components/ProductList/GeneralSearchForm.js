@@ -1,31 +1,33 @@
-import arrowDown from "../../Assets/images/productList/select_down.svg";
-import productSearch from "../../Assets/images/productList/pd_search.png";
-import styles from "../../Styles/ProductList/ProductList.module.css";
-import getProductData from "../../Api/api";
-import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
+import styles from "../../styles/productList/productList.module.css";
+import arrowDownImg from "../../assets/images/productList/select_down.svg";
+import productSearchImg from "../../assets/images/productList/pd_search.png";
+import getProductData from "../../Api/api";
+import CalculatorMediaQuery from "../../utils/calculatormediaQuery";
 
-function ProductSearchForm({
+function GeneralSearchForm({
   setProductContainer,
   page,
   setPage,
   setPageCount,
   setIsDataCount,
 }) {
-  const isTablet = useMediaQuery({
-    query: "(max-width: 1200px)",
-  });
-  const isMobile = useMediaQuery({
-    query: "(max-width: 768px)",
-  });
-  const [toggle, setToggle] = useState(true);
-  const [filter, setFilter] = useState("최신순");
-  const [orderBy, setOrderBy] = useState("recent");
-  const [search, setSearch] = useState("");
-  const [isWidth, setIsWidth] = useState(isMobile ? 4 : isTablet ? 6 : 10);
+  const { isTablet, isMobile } = CalculatorMediaQuery();
   const [isResponsive, setIsResponsive] = useState(window.innerWidth);
-  setIsDataCount(isWidth);
+  const [isItemCount, setIsItemCount] = useState(
+    isMobile ? 4 : isTablet ? 6 : 10
+  );
+
+  const [orderBy, setOrderBy] = useState("recent");
+  const [keyword, setKeyword] = useState("");
+  const [filter, setFilter] = useState("최신순");
+  const [toggle, setToggle] = useState(true);
+
+  // 첫 렌더링 시 현재 유저의 디바이스 크기를 계산해 페이지네이션 출력
+  useEffect(() => {
+    setIsDataCount(isItemCount);
+  }, []);
 
   const handleFilterToggle = () => {
     toggle ? setToggle(false) : setToggle(true);
@@ -60,10 +62,14 @@ function ProductSearchForm({
   useEffect(() => {
     const handleResize = () => {
       setIsResponsive(window.innerWidth);
-      isMobile ? setIsWidth(4) : isTablet ? setIsWidth(6) : setIsWidth(10);
+      isMobile
+        ? setIsItemCount(4)
+        : isTablet
+        ? setIsItemCount(6)
+        : setIsItemCount(10);
+      setIsDataCount(isItemCount);
       // 페이지 창 크기 조절 시 pagination 1로 초기화(추후 불필요하단 판단 시 아래 코드만 삭제)
       setPage(1);
-      setIsDataCount(isWidth);
     };
     window.addEventListener("resize", handleResize);
     return () => {
@@ -74,16 +80,16 @@ function ProductSearchForm({
 
   useEffect(() => {
     handleLoad({
-      orderBy,
-      pageSize: isWidth,
-      search,
       page,
+      orderBy,
+      pageSize: isItemCount,
+      keyword: keyword,
     });
-  }, [orderBy, search, page, isWidth]);
+  }, [orderBy, keyword, page, isItemCount]);
 
   const handleSearch = (e) => {
     e.preventDefault();
-    setSearch(e.target.value);
+    setKeyword(e.target.value);
     setPage(1);
   };
   return (
@@ -94,14 +100,14 @@ function ProductSearchForm({
           <form>
             <div className={styles.formCover}>
               <div className={styles.inputBox}>
-                <img src={productSearch} alt="상품검색" />
+                <img src={productSearchImg} alt="상품검색" />
                 <input
                   name="search"
                   placeholder="검색할 상품을 입력해주세요"
                   onChange={handleSearch}
                 />
               </div>
-              <Link to="/additem">
+              <Link to="/items/additem">
                 <button type="button">상품 등록하기</button>
               </Link>
             </div>
@@ -110,7 +116,7 @@ function ProductSearchForm({
             <div className={styles.btnSelectBox} onClick={handleFilterToggle}>
               <p className={styles.text}>{filter}</p>
               <img
-                src={arrowDown}
+                src={arrowDownImg}
                 alt="옵션보기"
                 className={`${!toggle && styles.on}`}
               />
@@ -126,4 +132,4 @@ function ProductSearchForm({
   );
 }
 
-export default ProductSearchForm;
+export default GeneralSearchForm;

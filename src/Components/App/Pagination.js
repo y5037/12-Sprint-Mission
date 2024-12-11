@@ -1,16 +1,28 @@
-import styles from "../../Styles/App/Pagination.module.css";
-import arrowPrevImg from "../../Assets/images/app/pagination/arrow_left.svg";
-import arrowNextImg from "../../Assets/images/app/pagination/arrow_right.svg";
+import { calculatePagination } from "../../utils/calculatorPagination";
+import styles from "../../styles/app/pagination.module.css";
+import arrowPrevImg from "../../assets/images/app/pagination/arrow_left.svg";
+import arrowNextImg from "../../assets/images/app/pagination/arrow_right.svg";
 
 function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
   const itemCountPerPage = Math.ceil(pageCount / isDataCount); // 페이지 당 보여줄 데이터 개수
-  const btnPage = 5; // 한 페이지당 pagination 5개 출력
-  const currentSet = Math.ceil(page / btnPage);
-  const totalPages = Math.ceil(pageCount / isDataCount);
+  const ITEMS_PER_PAGINATION = 5; // 한 페이지당 pagination 5개 출력
+
+  const { totalPages, currentSet, startPage, endPage } = calculatePagination({
+    page,
+    pageCount,
+    isDataCount,
+    ITEMS_PER_PAGINATION,
+  });
+
   const noPrev = page === 1;
   const noNext = page + itemCountPerPage - 1 >= totalPages;
-  const startPage = (currentSet - 1) * btnPage + 1;
-  const endPage = Math.min(startPage + btnPage - 1, totalPages);
+
+  function generatePageNumbers(startPage, endPage) {
+    return Array.from(
+      { length: endPage - startPage + 1 },
+      (_, i) => startPage + i
+    );
+  }
 
   return (
     <ul className={styles.pagination}>
@@ -22,18 +34,16 @@ function PaginationContainer({ page, setPage, pageCount, isDataCount }) {
           <img src={arrowPrevImg} alt="<" />
         </li>
       )}
-      {Array.from({ length: endPage - startPage + 1 }, (_, i) => (
+      {generatePageNumbers(startPage, endPage).map((pageNumber) => (
         <li
-          key={i}
-          className={`${styles.page} ${
-            page === startPage + i && styles.active
-          }`}
-          onClick={() => setPage(startPage + i)}
+          key={pageNumber}
+          className={`${styles.page} ${page === pageNumber && styles.active}`}
+          onClick={() => setPage(pageNumber)}
         >
-          {startPage + i}
+          {pageNumber}
         </li>
       ))}
-      {currentSet < Math.ceil(totalPages / btnPage) && (
+      {currentSet < Math.ceil(totalPages / ITEMS_PER_PAGINATION) && (
         <li
           className={`${styles.move} ${noNext && styles.invisible}`}
           onClick={() => setPage(endPage + 1)}

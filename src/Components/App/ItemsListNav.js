@@ -1,7 +1,7 @@
-import styles from "../../Styles/App/Navi.module.css";
-import navLogo from "../../Assets/images/app/navi/logo.svg";
-import profileDefaultImg from "../../Assets/images/app/navi/profile_default.png";
 import { Link, NavLink } from "react-router-dom";
+import styles from "../../styles/app/navi.module.css";
+import navLogoImg from "../../assets/images/app/navi/logo.svg";
+import profileDefaultImg from "../../assets/images/app/navi/profile_default.png";
 
 function getLinkStyle({ isActive }) {
   return {
@@ -17,7 +17,7 @@ function ItemListNav() {
         <div className={styles.pageControl}>
           <Link to="/">
             <div className={styles.btnLogo}>
-              <img src={navLogo} alt="판다마켓" />
+              <img src={navLogoImg} alt="판다마켓" />
               <p className={styles.companyName}>판다마켓</p>
             </div>
           </Link>
