@@ -1,0 +1,47 @@
+.skeletonBox {
+  position: relative;
+  flex: 1;
+  max-width: calc(100vw * (486 / 1920));
+  min-width: 250px;
+  height: max-content;
+  margin-right: 25px;
+  border-radius: 10px;
+  border: 1px solid var(--gray-50);
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--gray-200);
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    max-width: 100%;
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+}
+.skeletonBox:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+.skeletonLoading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    #e5e5e5 30%,
+    #f0f0f0 38%,
+    #f0f0f0 40%,
+    #e5e5e5 48%
+  );
+  border-radius: 1rem;
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: load 0.8s infinite;
+}
+
+@keyframes load {
+  100% {
+    background-position: -100% 0;
+  }
+}
