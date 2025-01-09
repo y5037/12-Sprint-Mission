@@ -1,10 +1,8 @@
-// import { format, register } from "timeago.js";
 import dayjs from 'dayjs';
 import isLeapYear from 'dayjs/plugin/isLeapYear'; // 윤년 판단 플러그인
 import 'dayjs/locale/ko';
 import React, { ChangeEvent, SyntheticEvent, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-// import koLocale from "timeago.js/lib/lang/ko";
 import styles from "../../styles/productDetail/productDetail.module.css";
 import { SelectBox, SelectButton } from "../../styles/productDetail/SelectBox";
 import optionMenuImg from "../../assets/images/productDetail/option_menu.svg";
