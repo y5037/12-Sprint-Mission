@@ -12,7 +12,7 @@ import profileDefaultImg from "../../assets/images/productDetail/default_profile
 import btnBackImg from "../../assets/images/app/button/btn_back.svg";
 import emptyCommentImg from "../../assets/images/productDetail/empty_comment.svg";
 import { TCommentDataProps, CommentUIProps } from "./types";
-import { getTimeDiff } from '../App/dayjs';
+import { getTimeDiff } from '../App/Dayjs';
 
 dayjs.extend(isLeapYear);
 dayjs.locale('ko');
