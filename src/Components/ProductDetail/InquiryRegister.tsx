@@ -154,8 +154,6 @@ function InquiryRegister({
                     <div className={styles.authorContent}>
                       <p className={styles.nickName}>{writer.nickname}</p>
                       <p className={styles.date}>
-                        {/* {format(comment.updatedAt, "ko")} */}
-                        {/* {dayjs().format(comment.updatedAt)} */}
                         {getTimeDiff(comment.updatedAt)}
                       </p>
                     </div>
