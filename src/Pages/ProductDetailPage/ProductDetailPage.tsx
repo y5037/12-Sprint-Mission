@@ -26,8 +26,8 @@ function ProductDetailPage() {
   return (
     <>
       <ItemListNav />
-      <ProductDetail productData={productData} Loading={Loading}/>
-      <InquiryRegister commentsData={commentsData}/>
+      <ProductDetail productData={productData} Loading={Loading} />
+      <InquiryRegister commentsData={commentsData} />
     </>
   );
 }

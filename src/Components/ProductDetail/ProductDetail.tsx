@@ -6,7 +6,8 @@ import optionMenuImg from "../../assets/images/productDetail/option_menu.svg";
 import { SyntheticEvent, useEffect, useRef, useState } from "react";
 import { SelectBox, SelectButton } from "../../styles/productDetail/SelectBox";
 import { TProductDataProps } from "./types";
-import Skeleton from "./Skeleton";
+import ImgSkeleton from "./ImgSkeleton";
+import TextSkeleton from "./TextSkeleton";
 
 function ProductDetail({
   productData,
@@ -47,7 +48,7 @@ function ProductDetail({
     <div className={`${styles.pagiContainer} ${styles.emptyTopBox}`}>
       <div className={styles.section1}>
         {Loading ? (
-          <Skeleton />
+          <ImgSkeleton />
         ) : (
           <div className={styles.productImg}>
             <img
@@ -58,59 +59,65 @@ function ProductDetail({
           </div>
         )}
 
-        <div className={styles.descriptionContainer}>
-          <div>
-            <div className={styles.titleCover}>
-              <p className={styles.title}>{productData?.name}</p>
-              <p className={styles.price}>{formattedPrice}원</p>
-              <div
-                className={styles.btnMore}
-                onClick={handleOptionClick}
-                ref={outRef}
-              >
-                <img src={optionMenuImg} alt="더보기" />
-                {selectBox && (
-                  <SelectBox>
-                    <SelectButton>수정하기</SelectButton>
-                    <SelectButton>삭제하기</SelectButton>
-                  </SelectBox>
-                )}
+        {Loading ? (
+          <TextSkeleton />
+        ) : (
+          <div className={styles.descriptionContainer}>
+            <div>
+              <div className={styles.titleCover}>
+                <p className={styles.title}>{productData?.name}</p>
+                <p className={styles.price}>{formattedPrice}원</p>
+                <div
+                  className={styles.btnMore}
+                  onClick={handleOptionClick}
+                  ref={outRef}
+                >
+                  <img src={optionMenuImg} alt="더보기" />
+                  {selectBox && (
+                    <SelectBox>
+                      <SelectButton>수정하기</SelectButton>
+                      <SelectButton>삭제하기</SelectButton>
+                    </SelectBox>
+                  )}
+                </div>
+              </div>
+              <div className={styles.descriptionCover}>
+                <p className={styles.subTitle}>상품 소개</p>
+                <p className={styles.description}>{productData?.description}</p>
+              </div>
+              <div className={styles.tagsCover}>
+                <p className={styles.subTitle}>상품 태그</p>
+                <ul>
+                  {productData?.tags &&
+                    productData.tags.map((tag, i) => {
+                      return (
+                        <li key={i} className={styles.tagName}>
+                          #{tag}
+                        </li>
+                      );
+                    })}
+                </ul>
               </div>
             </div>
-            <div className={styles.descriptionCover}>
-              <p className={styles.subTitle}>상품 소개</p>
-              <p className={styles.description}>{productData?.description}</p>
-            </div>
-            <div className={styles.tagsCover}>
-              <p className={styles.subTitle}>상품 태그</p>
-              <ul>
-                {productData?.tags &&
-                  productData.tags.map((tag, i) => {
-                    return (
-                      <li key={i} className={styles.tagName}>
-                        #{tag}
-                      </li>
-                    );
-                  })}
-              </ul>
+            <div className={styles.cover}>
+              <div className={styles.owner}>
+                <div className={styles.profileImg}>
+                  <img src={profileDefaultImg} alt="프로필 이미지" />
+                </div>
+                <div className={styles.postInfo}>
+                  <p className={styles.nickName}>
+                    {productData?.ownerNickname}
+                  </p>
+                  <p className={styles.date}>{formattedDate}</p>
+                </div>
+              </div>
+              <div className={styles.favoritCount}>
+                <img src={favoriteImg} alt="좋아요" />
+                <p className={styles.count}>{productData?.favoriteCount}</p>
+              </div>
             </div>
           </div>
-          <div className={styles.cover}>
-            <div className={styles.owner}>
-              <div className={styles.profileImg}>
-                <img src={profileDefaultImg} alt="프로필 이미지" />
-              </div>
-              <div className={styles.postInfo}>
-                <p className={styles.nickName}>{productData?.ownerNickname}</p>
-                <p className={styles.date}>{formattedDate}</p>
-              </div>
-            </div>
-            <div className={styles.favoritCount}>
-              <img src={favoriteImg} alt="좋아요" />
-              <p className={styles.count}>{productData?.favoriteCount}</p>
-            </div>
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );
